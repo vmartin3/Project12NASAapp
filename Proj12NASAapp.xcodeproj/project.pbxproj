@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		763355FE1ECB6AD2000AA619 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763355FD1ECB6AD2000AA619 /* AppDelegate.swift */; };
+		763356001ECB6AD2000AA619 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763355FF1ECB6AD2000AA619 /* ViewController.swift */; };
+		763356031ECB6AD2000AA619 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 763356011ECB6AD2000AA619 /* Main.storyboard */; };
+		763356061ECB6AD2000AA619 /* Proj12NASAapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 763356041ECB6AD2000AA619 /* Proj12NASAapp.xcdatamodeld */; };
+		763356081ECB6AD2000AA619 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 763356071ECB6AD2000AA619 /* Assets.xcassets */; };
+		7633560B1ECB6AD2000AA619 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 763356091ECB6AD2000AA619 /* LaunchScreen.storyboard */; };
+		763356161ECB6AD2000AA619 /* Proj12NASAappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763356151ECB6AD2000AA619 /* Proj12NASAappTests.swift */; };
+		763356211ECB6AD2000AA619 /* Proj12NASAappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763356201ECB6AD2000AA619 /* Proj12NASAappUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		763356121ECB6AD2000AA619 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 763355F21ECB6AD2000AA619 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 763355F91ECB6AD2000AA619;
+			remoteInfo = Proj12NASAapp;
+		};
+		7633561D1ECB6AD2000AA619 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 763355F21ECB6AD2000AA619 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 763355F91ECB6AD2000AA619;
+			remoteInfo = Proj12NASAapp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		763355FA1ECB6AD2000AA619 /* Proj12NASAapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Proj12NASAapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		763355FD1ECB6AD2000AA619 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		763355FF1ECB6AD2000AA619 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		763356021ECB6AD2000AA619 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		763356051ECB6AD2000AA619 /* Proj12NASAapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Proj12NASAapp.xcdatamodel; sourceTree = "<group>"; };
+		763356071ECB6AD2000AA619 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7633560A1ECB6AD2000AA619 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7633560C1ECB6AD2000AA619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		763356111ECB6AD2000AA619 /* Proj12NASAappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Proj12NASAappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		763356151ECB6AD2000AA619 /* Proj12NASAappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proj12NASAappTests.swift; sourceTree = "<group>"; };
+		763356171ECB6AD2000AA619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7633561C1ECB6AD2000AA619 /* Proj12NASAappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Proj12NASAappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		763356201ECB6AD2000AA619 /* Proj12NASAappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proj12NASAappUITests.swift; sourceTree = "<group>"; };
+		763356221ECB6AD2000AA619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		763355F71ECB6AD2000AA619 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7633560E1ECB6AD2000AA619 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		763356191ECB6AD2000AA619 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		763355F11ECB6AD2000AA619 = {
+			isa = PBXGroup;
+			children = (
+				763355FC1ECB6AD2000AA619 /* Proj12NASAapp */,
+				763356141ECB6AD2000AA619 /* Proj12NASAappTests */,
+				7633561F1ECB6AD2000AA619 /* Proj12NASAappUITests */,
+				763355FB1ECB6AD2000AA619 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		763355FB1ECB6AD2000AA619 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				763355FA1ECB6AD2000AA619 /* Proj12NASAapp.app */,
+				763356111ECB6AD2000AA619 /* Proj12NASAappTests.xctest */,
+				7633561C1ECB6AD2000AA619 /* Proj12NASAappUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		763355FC1ECB6AD2000AA619 /* Proj12NASAapp */ = {
+			isa = PBXGroup;
+			children = (
+				763355FD1ECB6AD2000AA619 /* AppDelegate.swift */,
+				763355FF1ECB6AD2000AA619 /* ViewController.swift */,
+				763356011ECB6AD2000AA619 /* Main.storyboard */,
+				763356071ECB6AD2000AA619 /* Assets.xcassets */,
+				763356091ECB6AD2000AA619 /* LaunchScreen.storyboard */,
+				7633560C1ECB6AD2000AA619 /* Info.plist */,
+				763356041ECB6AD2000AA619 /* Proj12NASAapp.xcdatamodeld */,
+			);
+			path = Proj12NASAapp;
+			sourceTree = "<group>";
+		};
+		763356141ECB6AD2000AA619 /* Proj12NASAappTests */ = {
+			isa = PBXGroup;
+			children = (
+				763356151ECB6AD2000AA619 /* Proj12NASAappTests.swift */,
+				763356171ECB6AD2000AA619 /* Info.plist */,
+			);
+			path = Proj12NASAappTests;
+			sourceTree = "<group>";
+		};
+		7633561F1ECB6AD2000AA619 /* Proj12NASAappUITests */ = {
+			isa = PBXGroup;
+			children = (
+				763356201ECB6AD2000AA619 /* Proj12NASAappUITests.swift */,
+				763356221ECB6AD2000AA619 /* Info.plist */,
+			);
+			path = Proj12NASAappUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		763355F91ECB6AD2000AA619 /* Proj12NASAapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 763356251ECB6AD2000AA619 /* Build configuration list for PBXNativeTarget "Proj12NASAapp" */;
+			buildPhases = (
+				763355F61ECB6AD2000AA619 /* Sources */,
+				763355F71ECB6AD2000AA619 /* Frameworks */,
+				763355F81ECB6AD2000AA619 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Proj12NASAapp;
+			productName = Proj12NASAapp;
+			productReference = 763355FA1ECB6AD2000AA619 /* Proj12NASAapp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		763356101ECB6AD2000AA619 /* Proj12NASAappTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 763356281ECB6AD2000AA619 /* Build configuration list for PBXNativeTarget "Proj12NASAappTests" */;
+			buildPhases = (
+				7633560D1ECB6AD2000AA619 /* Sources */,
+				7633560E1ECB6AD2000AA619 /* Frameworks */,
+				7633560F1ECB6AD2000AA619 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				763356131ECB6AD2000AA619 /* PBXTargetDependency */,
+			);
+			name = Proj12NASAappTests;
+			productName = Proj12NASAappTests;
+			productReference = 763356111ECB6AD2000AA619 /* Proj12NASAappTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7633561B1ECB6AD2000AA619 /* Proj12NASAappUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7633562B1ECB6AD2000AA619 /* Build configuration list for PBXNativeTarget "Proj12NASAappUITests" */;
+			buildPhases = (
+				763356181ECB6AD2000AA619 /* Sources */,
+				763356191ECB6AD2000AA619 /* Frameworks */,
+				7633561A1ECB6AD2000AA619 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7633561E1ECB6AD2000AA619 /* PBXTargetDependency */,
+			);
+			name = Proj12NASAappUITests;
+			productName = Proj12NASAappUITests;
+			productReference = 7633561C1ECB6AD2000AA619 /* Proj12NASAappUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		763355F21ECB6AD2000AA619 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Vernon G Martin";
+				TargetAttributes = {
+					763355F91ECB6AD2000AA619 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					763356101ECB6AD2000AA619 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 763355F91ECB6AD2000AA619;
+					};
+					7633561B1ECB6AD2000AA619 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 763355F91ECB6AD2000AA619;
+					};
+				};
+			};
+			buildConfigurationList = 763355F51ECB6AD2000AA619 /* Build configuration list for PBXProject "Proj12NASAapp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 763355F11ECB6AD2000AA619;
+			productRefGroup = 763355FB1ECB6AD2000AA619 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				763355F91ECB6AD2000AA619 /* Proj12NASAapp */,
+				763356101ECB6AD2000AA619 /* Proj12NASAappTests */,
+				7633561B1ECB6AD2000AA619 /* Proj12NASAappUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		763355F81ECB6AD2000AA619 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7633560B1ECB6AD2000AA619 /* LaunchScreen.storyboard in Resources */,
+				763356081ECB6AD2000AA619 /* Assets.xcassets in Resources */,
+				763356031ECB6AD2000AA619 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7633560F1ECB6AD2000AA619 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7633561A1ECB6AD2000AA619 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		763355F61ECB6AD2000AA619 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				763356001ECB6AD2000AA619 /* ViewController.swift in Sources */,
+				763355FE1ECB6AD2000AA619 /* AppDelegate.swift in Sources */,
+				763356061ECB6AD2000AA619 /* Proj12NASAapp.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7633560D1ECB6AD2000AA619 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				763356161ECB6AD2000AA619 /* Proj12NASAappTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		763356181ECB6AD2000AA619 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				763356211ECB6AD2000AA619 /* Proj12NASAappUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		763356131ECB6AD2000AA619 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 763355F91ECB6AD2000AA619 /* Proj12NASAapp */;
+			targetProxy = 763356121ECB6AD2000AA619 /* PBXContainerItemProxy */;
+		};
+		7633561E1ECB6AD2000AA619 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 763355F91ECB6AD2000AA619 /* Proj12NASAapp */;
+			targetProxy = 7633561D1ECB6AD2000AA619 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		763356011ECB6AD2000AA619 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				763356021ECB6AD2000AA619 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		763356091ECB6AD2000AA619 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7633560A1ECB6AD2000AA619 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		763356231ECB6AD2000AA619 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		763356241ECB6AD2000AA619 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		763356261ECB6AD2000AA619 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Proj12NASAapp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VernonMartin.Proj12NASAapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		763356271ECB6AD2000AA619 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Proj12NASAapp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VernonMartin.Proj12NASAapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		763356291ECB6AD2000AA619 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Proj12NASAappTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VernonMartin.Proj12NASAappTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Proj12NASAapp.app/Proj12NASAapp";
+			};
+			name = Debug;
+		};
+		7633562A1ECB6AD2000AA619 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Proj12NASAappTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VernonMartin.Proj12NASAappTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Proj12NASAapp.app/Proj12NASAapp";
+			};
+			name = Release;
+		};
+		7633562C1ECB6AD2000AA619 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = Proj12NASAappUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VernonMartin.Proj12NASAappUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Proj12NASAapp;
+			};
+			name = Debug;
+		};
+		7633562D1ECB6AD2000AA619 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = Proj12NASAappUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VernonMartin.Proj12NASAappUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Proj12NASAapp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		763355F51ECB6AD2000AA619 /* Build configuration list for PBXProject "Proj12NASAapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				763356231ECB6AD2000AA619 /* Debug */,
+				763356241ECB6AD2000AA619 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		763356251ECB6AD2000AA619 /* Build configuration list for PBXNativeTarget "Proj12NASAapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				763356261ECB6AD2000AA619 /* Debug */,
+				763356271ECB6AD2000AA619 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		763356281ECB6AD2000AA619 /* Build configuration list for PBXNativeTarget "Proj12NASAappTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				763356291ECB6AD2000AA619 /* Debug */,
+				7633562A1ECB6AD2000AA619 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7633562B1ECB6AD2000AA619 /* Build configuration list for PBXNativeTarget "Proj12NASAappUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7633562C1ECB6AD2000AA619 /* Debug */,
+				7633562D1ECB6AD2000AA619 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		763356041ECB6AD2000AA619 /* Proj12NASAapp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				763356051ECB6AD2000AA619 /* Proj12NASAapp.xcdatamodel */,
+			);
+			currentVersion = 763356051ECB6AD2000AA619 /* Proj12NASAapp.xcdatamodel */;
+			path = Proj12NASAapp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 763355F21ECB6AD2000AA619 /* Project object */;
+}
