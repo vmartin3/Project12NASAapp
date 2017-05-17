@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		763355FE1ECB6AD2000AA619 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763355FD1ECB6AD2000AA619 /* AppDelegate.swift */; };
-		763356001ECB6AD2000AA619 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763355FF1ECB6AD2000AA619 /* ViewController.swift */; };
 		763356031ECB6AD2000AA619 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 763356011ECB6AD2000AA619 /* Main.storyboard */; };
 		763356061ECB6AD2000AA619 /* Proj12NASAapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 763356041ECB6AD2000AA619 /* Proj12NASAapp.xcdatamodeld */; };
 		763356081ECB6AD2000AA619 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 763356071ECB6AD2000AA619 /* Assets.xcassets */; };
 		7633560B1ECB6AD2000AA619 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 763356091ECB6AD2000AA619 /* LaunchScreen.storyboard */; };
 		763356161ECB6AD2000AA619 /* Proj12NASAappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763356151ECB6AD2000AA619 /* Proj12NASAappTests.swift */; };
 		763356211ECB6AD2000AA619 /* Proj12NASAappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763356201ECB6AD2000AA619 /* Proj12NASAappUITests.swift */; };
+		7633562F1ECB7DD7000AA619 /* RoverPostCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7633562E1ECB7DD7000AA619 /* RoverPostCardVC.swift */; };
+		76E0B1B51ECB85420010CBEE /* NasaImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E0B1B41ECB85420010CBEE /* NasaImageCell.swift */; };
+		76E0B1B71ECB8F040010CBEE /* NasaApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E0B1B61ECB8F040010CBEE /* NasaApi.swift */; };
+		76E0B1B91ECB93A40010CBEE /* RoverPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E0B1B81ECB93A40010CBEE /* RoverPhoto.swift */; };
+		76E0B1BB1ECB95550010CBEE /* NasaApiStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E0B1BA1ECB95550010CBEE /* NasaApiStructure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +41,6 @@
 /* Begin PBXFileReference section */
 		763355FA1ECB6AD2000AA619 /* Proj12NASAapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Proj12NASAapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		763355FD1ECB6AD2000AA619 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		763355FF1ECB6AD2000AA619 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		763356021ECB6AD2000AA619 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		763356051ECB6AD2000AA619 /* Proj12NASAapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Proj12NASAapp.xcdatamodel; sourceTree = "<group>"; };
 		763356071ECB6AD2000AA619 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +52,11 @@
 		7633561C1ECB6AD2000AA619 /* Proj12NASAappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Proj12NASAappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		763356201ECB6AD2000AA619 /* Proj12NASAappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proj12NASAappUITests.swift; sourceTree = "<group>"; };
 		763356221ECB6AD2000AA619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7633562E1ECB7DD7000AA619 /* RoverPostCardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoverPostCardVC.swift; path = ../RoverPostCardVC.swift; sourceTree = "<group>"; };
+		76E0B1B41ECB85420010CBEE /* NasaImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NasaImageCell.swift; sourceTree = "<group>"; };
+		76E0B1B61ECB8F040010CBEE /* NasaApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NasaApi.swift; sourceTree = "<group>"; };
+		76E0B1B81ECB93A40010CBEE /* RoverPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoverPhoto.swift; sourceTree = "<group>"; };
+		76E0B1BA1ECB95550010CBEE /* NasaApiStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NasaApiStructure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +107,14 @@
 		763355FC1ECB6AD2000AA619 /* Proj12NASAapp */ = {
 			isa = PBXGroup;
 			children = (
-				763355FD1ECB6AD2000AA619 /* AppDelegate.swift */,
-				763355FF1ECB6AD2000AA619 /* ViewController.swift */,
-				763356011ECB6AD2000AA619 /* Main.storyboard */,
 				763356071ECB6AD2000AA619 /* Assets.xcassets */,
+				763355FD1ECB6AD2000AA619 /* AppDelegate.swift */,
+				763356011ECB6AD2000AA619 /* Main.storyboard */,
 				763356091ECB6AD2000AA619 /* LaunchScreen.storyboard */,
+				767C498D1ECC8A11000D369C /* Model */,
+				767C498C1ECC8A02000D369C /* View */,
+				767C498E1ECC8A15000D369C /* Controller */,
+				767C498F1ECC8A1A000D369C /* Helper */,
 				7633560C1ECB6AD2000AA619 /* Info.plist */,
 				763356041ECB6AD2000AA619 /* Proj12NASAapp.xcdatamodeld */,
 			);
@@ -126,6 +137,39 @@
 				763356221ECB6AD2000AA619 /* Info.plist */,
 			);
 			path = Proj12NASAappUITests;
+			sourceTree = "<group>";
+		};
+		767C498C1ECC8A02000D369C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7633562E1ECB7DD7000AA619 /* RoverPostCardVC.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		767C498D1ECC8A11000D369C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				76E0B1B81ECB93A40010CBEE /* RoverPhoto.swift */,
+				76E0B1B41ECB85420010CBEE /* NasaImageCell.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		767C498E1ECC8A15000D369C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				76E0B1B61ECB8F040010CBEE /* NasaApi.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		767C498F1ECC8A1A000D369C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				76E0B1BA1ECB95550010CBEE /* NasaApiStructure.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +306,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				763356001ECB6AD2000AA619 /* ViewController.swift in Sources */,
+				7633562F1ECB7DD7000AA619 /* RoverPostCardVC.swift in Sources */,
+				76E0B1B51ECB85420010CBEE /* NasaImageCell.swift in Sources */,
+				76E0B1B71ECB8F040010CBEE /* NasaApi.swift in Sources */,
+				76E0B1B91ECB93A40010CBEE /* RoverPhoto.swift in Sources */,
+				76E0B1BB1ECB95550010CBEE /* NasaApiStructure.swift in Sources */,
 				763355FE1ECB6AD2000AA619 /* AppDelegate.swift in Sources */,
 				763356061ECB6AD2000AA619 /* Proj12NASAapp.xcdatamodeld in Sources */,
 			);
@@ -509,6 +557,7 @@
 				763356271ECB6AD2000AA619 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		763356281ECB6AD2000AA619 /* Build configuration list for PBXNativeTarget "Proj12NASAappTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +566,7 @@
 				7633562A1ECB6AD2000AA619 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7633562B1ECB6AD2000AA619 /* Build configuration list for PBXNativeTarget "Proj12NASAappUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +575,7 @@
 				7633562D1ECB6AD2000AA619 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
