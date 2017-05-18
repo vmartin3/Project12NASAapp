@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HRb-lw-cv7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1e7-pT-DEk">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,6 +23,10 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="NKR-cj-fEu">
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NasaCell" id="C4O-iW-XAv" customClass="NasaImageCell" customModule="Proj12NASAapp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="93"/>
@@ -34,52 +38,51 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qpq-RE-Gcy">
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="93"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHl-1r-Q39">
-                                            <rect key="frame" x="131" y="70" width="21" height="18"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="21" id="arb-eU-hYy"/>
-                                                <constraint firstAttribute="height" constant="18" id="kTy-UX-lu8"/>
-                                            </constraints>
-                                            <state key="normal" title="Button" image="Email"/>
-                                            <connections>
-                                                <segue destination="jEC-kD-KHW" kind="modal" modalTransitionStyle="partialCurl" id="ghj-Bn-FQa"/>
-                                            </connections>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpM-Yg-vEr">
-                                            <rect key="frame" x="4" y="69.5" width="150" height="8.5"/>
+                                            <rect key="frame" x="4" y="70" width="126" height="9"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="7"/>
                                             <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera/Rover Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jec-YO-f61">
-                                            <rect key="frame" x="4" y="79.5" width="150" height="8.5"/>
+                                            <rect key="frame" x="4" y="80" width="132" height="9"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="7"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdq-Nl-Ihd">
+                                            <rect key="frame" x="144" y="78" width="10" height="8"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="8" id="W8C-e7-zmC"/>
+                                                <constraint firstAttribute="width" constant="10" id="e5s-m0-HNu"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="Email"/>
+                                            <connections>
+                                                <segue destination="jEC-kD-KHW" kind="modal" identifier="MailSegue" modalTransitionStyle="coverVertical" id="30f-vT-PEW"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="0.5215378853" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Jec-YO-f61" secondAttribute="trailing" constant="6" id="56x-LW-mp7"/>
-                                    <constraint firstAttribute="bottom" secondItem="vpM-Yg-vEr" secondAttribute="bottom" constant="15" id="93X-mx-94S"/>
+                                    <constraint firstAttribute="bottom" secondItem="vdq-Nl-Ihd" secondAttribute="bottom" constant="7" id="1nD-ZE-RgG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jec-YO-f61" secondAttribute="trailing" constant="24" id="56x-LW-mp7"/>
+                                    <constraint firstAttribute="bottom" secondItem="vpM-Yg-vEr" secondAttribute="bottom" constant="14" id="93X-mx-94S"/>
                                     <constraint firstItem="qpq-RE-Gcy" firstAttribute="leading" secondItem="C4O-iW-XAv" secondAttribute="leading" id="Be4-Lc-Xv4"/>
-                                    <constraint firstItem="cHl-1r-Q39" firstAttribute="top" secondItem="C4O-iW-XAv" secondAttribute="top" constant="70" id="DpA-Cr-Ele"/>
                                     <constraint firstAttribute="trailing" secondItem="qpq-RE-Gcy" secondAttribute="trailing" id="FBS-Td-j5d"/>
-                                    <constraint firstAttribute="bottom" secondItem="Jec-YO-f61" secondAttribute="bottom" constant="5" id="OwY-YO-N1C"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jec-YO-f61" secondAttribute="bottom" constant="4" id="OwY-YO-N1C"/>
                                     <constraint firstAttribute="bottom" secondItem="qpq-RE-Gcy" secondAttribute="bottom" id="bGG-XF-gIB"/>
                                     <constraint firstItem="qpq-RE-Gcy" firstAttribute="top" secondItem="C4O-iW-XAv" secondAttribute="top" id="c3b-9C-rlF"/>
                                     <constraint firstItem="vpM-Yg-vEr" firstAttribute="leading" secondItem="C4O-iW-XAv" secondAttribute="leading" constant="4" id="cZN-pq-oP4"/>
-                                    <constraint firstAttribute="trailing" secondItem="vpM-Yg-vEr" secondAttribute="trailing" constant="6" id="k4g-G1-Wam"/>
-                                    <constraint firstAttribute="bottom" secondItem="cHl-1r-Q39" secondAttribute="bottom" constant="5" id="mbJ-x9-3Iy"/>
-                                    <constraint firstAttribute="trailing" secondItem="cHl-1r-Q39" secondAttribute="trailing" constant="8" id="t5T-6K-SoK"/>
+                                    <constraint firstAttribute="trailing" secondItem="vdq-Nl-Ihd" secondAttribute="trailing" constant="6" id="f9k-9P-OKd"/>
+                                    <constraint firstAttribute="trailing" secondItem="vpM-Yg-vEr" secondAttribute="trailing" constant="30" id="k4g-G1-Wam"/>
+                                    <constraint firstItem="vdq-Nl-Ihd" firstAttribute="leading" secondItem="Jec-YO-f61" secondAttribute="trailing" constant="8" id="v0O-pe-4oP"/>
                                     <constraint firstItem="Jec-YO-f61" firstAttribute="leading" secondItem="C4O-iW-XAv" secondAttribute="leading" constant="4" id="w0O-Gn-wiG"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="nasaPhoto" destination="qpq-RE-Gcy" id="yKH-aV-LCa"/>
                                     <outlet property="roverDetailLabel" destination="Jec-YO-f61" id="bcA-qR-nmc"/>
                                     <outlet property="roverNameLabel" destination="vpM-Yg-vEr" id="Evy-vg-blS"/>
-                                    <outlet property="sendEmail" destination="Jec-YO-f61" id="JPv-bh-egT"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -88,15 +91,18 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="w2n-bi-Uqk"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="NKR-cj-fEu" id="7uK-S7-QMl"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6S7-EA-nvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1200" y="22.8515625"/>
+            <point key="canvasLocation" x="835" y="-11"/>
         </scene>
-        <!--View Controller-->
+        <!--Mail PostcardVC-->
         <scene sceneID="dpn-0T-S08">
             <objects>
-                <viewController id="jEC-kD-KHW" sceneMemberID="viewController">
+                <viewController id="jEC-kD-KHW" customClass="MailPostcardVC" customModule="Proj12NASAapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LLa-UQ-DEM"/>
                         <viewControllerLayoutGuide type="bottom" id="8Vu-YT-IZ4"/>
@@ -104,33 +110,85 @@
                     <view key="view" contentMode="scaleToFill" id="tMF-Od-sHy">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="postcard" translatesAutoresizingMaskIntoConstraints="NO" id="VhT-Ie-lcT">
+                                <rect key="frame" x="234" y="412" width="300" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="6yJ-WO-7Sk"/>
+                                    <constraint firstAttribute="height" constant="200" id="a5c-1F-glj"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lny-gc-yy9">
+                                <rect key="frame" x="241" y="456" width="140" height="127"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="Q0A-gQ-TiK"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="hOP-jT-NEa" appends="YES" id="vAb-ST-HEK"/>
+                                </connections>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" text="Message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="g7c-9b-1x9">
+                                <rect key="frame" x="241" y="456" width="140" height="127"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;- Click inside to add Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeU-Wy-FZQ">
+                                <rect key="frame" x="403" y="491" width="93" height="9"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2A-bc-cCk">
+                                <rect key="frame" x="459" y="587" width="63" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <state key="normal" title="Send Message"/>
+                                <connections>
+                                    <action selector="sendMessageButtonTapped:" destination="jEC-kD-KHW" eventType="touchUpInside" id="7Cn-Lo-B6I"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Lny-gc-yy9" firstAttribute="top" secondItem="VhT-Ie-lcT" secondAttribute="top" constant="44" id="0YX-3f-AIj"/>
+                            <constraint firstItem="Lny-gc-yy9" firstAttribute="centerX" secondItem="tMF-Od-sHy" secondAttribute="centerX" constant="-73" id="7fZ-bg-Scy"/>
+                            <constraint firstItem="VhT-Ie-lcT" firstAttribute="centerY" secondItem="tMF-Od-sHy" secondAttribute="centerY" id="Gnc-Cz-MCX"/>
+                            <constraint firstItem="F2A-bc-cCk" firstAttribute="top" secondItem="OeU-Wy-FZQ" secondAttribute="bottom" constant="87" id="JcN-Gs-RlD"/>
+                            <constraint firstItem="OeU-Wy-FZQ" firstAttribute="leading" secondItem="VhT-Ie-lcT" secondAttribute="trailing" constant="-131" id="OOT-md-oUv"/>
+                            <constraint firstItem="g7c-9b-1x9" firstAttribute="bottom" secondItem="Lny-gc-yy9" secondAttribute="bottom" id="Pj5-Yz-gM6"/>
+                            <constraint firstItem="VhT-Ie-lcT" firstAttribute="top" secondItem="OeU-Wy-FZQ" secondAttribute="bottom" constant="-88" id="TX6-LN-JFV"/>
+                            <constraint firstItem="Lny-gc-yy9" firstAttribute="centerY" secondItem="tMF-Od-sHy" secondAttribute="centerY" constant="7.5" id="UTy-ce-ndh"/>
+                            <constraint firstItem="g7c-9b-1x9" firstAttribute="top" secondItem="VhT-Ie-lcT" secondAttribute="bottom" constant="-156" id="cwG-Qv-eZa"/>
+                            <constraint firstItem="VhT-Ie-lcT" firstAttribute="leading" secondItem="g7c-9b-1x9" secondAttribute="trailing" constant="-147" id="iIJ-K4-4Gd"/>
+                            <constraint firstItem="VhT-Ie-lcT" firstAttribute="centerY" secondItem="tMF-Od-sHy" secondAttribute="centerY" id="jyx-x1-mSp"/>
+                            <constraint firstItem="OeU-Wy-FZQ" firstAttribute="leading" secondItem="g7c-9b-1x9" secondAttribute="trailing" constant="22" id="kJZ-Uu-OgV"/>
+                            <constraint firstItem="VhT-Ie-lcT" firstAttribute="centerX" secondItem="tMF-Od-sHy" secondAttribute="centerX" id="m1F-pN-VLW"/>
+                            <constraint firstItem="VhT-Ie-lcT" firstAttribute="centerX" secondItem="tMF-Od-sHy" secondAttribute="centerX" id="nTM-hU-mL0"/>
+                            <constraint firstItem="F2A-bc-cCk" firstAttribute="top" secondItem="VhT-Ie-lcT" secondAttribute="bottom" constant="-25" id="nTX-9g-So0"/>
+                            <constraint firstItem="g7c-9b-1x9" firstAttribute="leading" secondItem="Lny-gc-yy9" secondAttribute="leading" id="pUC-di-Jvh"/>
+                            <constraint firstItem="F2A-bc-cCk" firstAttribute="leading" secondItem="VhT-Ie-lcT" secondAttribute="trailing" constant="-75" id="vTU-TB-Y5B"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mailMessageTextView" destination="g7c-9b-1x9" id="YAl-v0-347"/>
+                        <outlet property="postCardRoverImage" destination="Lny-gc-yy9" id="MJz-IV-ZQZ"/>
+                        <outlet property="postCardView" destination="VhT-Ie-lcT" id="uts-9f-Hvx"/>
+                        <outlet property="sendMessageButton" destination="F2A-bc-cCk" id="88A-5e-eyI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2i-Bb-svb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1880" y="23"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="IPp-I3-eY3">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="HRb-lw-cv7" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wYS-gl-Rg9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <tapGestureRecognizer id="hOP-jT-NEa">
                     <connections>
-                        <segue destination="1e7-pT-DEk" kind="relationship" relationship="rootViewController" id="s06-1Y-3xd"/>
+                        <action selector="roverImageTapped:" destination="jEC-kD-KHW" id="1me-Qf-ue5"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aDX-lB-IcH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="434.375" y="22.8515625"/>
+            <point key="canvasLocation" x="1518.75" y="-11.1328125"/>
         </scene>
     </scenes>
     <resources>
         <image name="Email" width="128" height="96"/>
+        <image name="postcard" width="1000" height="667"/>
     </resources>
 </document>

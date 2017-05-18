@@ -15,10 +15,12 @@
 		763356161ECB6AD2000AA619 /* Proj12NASAappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763356151ECB6AD2000AA619 /* Proj12NASAappTests.swift */; };
 		763356211ECB6AD2000AA619 /* Proj12NASAappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763356201ECB6AD2000AA619 /* Proj12NASAappUITests.swift */; };
 		7633562F1ECB7DD7000AA619 /* RoverPostCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7633562E1ECB7DD7000AA619 /* RoverPostCardVC.swift */; };
+		767C49931ECD44D6000D369C /* MailPostcardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767C49921ECD44D6000D369C /* MailPostcardVC.swift */; };
 		76E0B1B51ECB85420010CBEE /* NasaImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E0B1B41ECB85420010CBEE /* NasaImageCell.swift */; };
 		76E0B1B71ECB8F040010CBEE /* NasaApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E0B1B61ECB8F040010CBEE /* NasaApi.swift */; };
 		76E0B1B91ECB93A40010CBEE /* RoverPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E0B1B81ECB93A40010CBEE /* RoverPhoto.swift */; };
 		76E0B1BB1ECB95550010CBEE /* NasaApiStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E0B1BA1ECB95550010CBEE /* NasaApiStructure.swift */; };
+		76EA52CB1ECDE497009ADBDE /* MailClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA52CA1ECDE497009ADBDE /* MailClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +55,12 @@
 		763356201ECB6AD2000AA619 /* Proj12NASAappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proj12NASAappUITests.swift; sourceTree = "<group>"; };
 		763356221ECB6AD2000AA619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7633562E1ECB7DD7000AA619 /* RoverPostCardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoverPostCardVC.swift; path = ../RoverPostCardVC.swift; sourceTree = "<group>"; };
+		767C49921ECD44D6000D369C /* MailPostcardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailPostcardVC.swift; sourceTree = "<group>"; };
 		76E0B1B41ECB85420010CBEE /* NasaImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NasaImageCell.swift; sourceTree = "<group>"; };
 		76E0B1B61ECB8F040010CBEE /* NasaApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NasaApi.swift; sourceTree = "<group>"; };
 		76E0B1B81ECB93A40010CBEE /* RoverPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoverPhoto.swift; sourceTree = "<group>"; };
 		76E0B1BA1ECB95550010CBEE /* NasaApiStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NasaApiStructure.swift; sourceTree = "<group>"; };
+		76EA52CA1ECDE497009ADBDE /* MailClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 		767C498C1ECC8A02000D369C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				767C49921ECD44D6000D369C /* MailPostcardVC.swift */,
 				7633562E1ECB7DD7000AA619 /* RoverPostCardVC.swift */,
 			);
 			name = View;
@@ -167,6 +172,7 @@
 		767C498F1ECC8A1A000D369C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				76EA52CA1ECDE497009ADBDE /* MailClient.swift */,
 				76E0B1BA1ECB95550010CBEE /* NasaApiStructure.swift */,
 			);
 			name = Helper;
@@ -309,10 +315,12 @@
 				7633562F1ECB7DD7000AA619 /* RoverPostCardVC.swift in Sources */,
 				76E0B1B51ECB85420010CBEE /* NasaImageCell.swift in Sources */,
 				76E0B1B71ECB8F040010CBEE /* NasaApi.swift in Sources */,
+				767C49931ECD44D6000D369C /* MailPostcardVC.swift in Sources */,
 				76E0B1B91ECB93A40010CBEE /* RoverPhoto.swift in Sources */,
 				76E0B1BB1ECB95550010CBEE /* NasaApiStructure.swift in Sources */,
 				763355FE1ECB6AD2000AA619 /* AppDelegate.swift in Sources */,
 				763356061ECB6AD2000AA619 /* Proj12NASAapp.xcdatamodeld in Sources */,
+				76EA52CB1ECDE497009ADBDE /* MailClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,35 +13,51 @@ private let reuseIdentifier = "NasaCell"
 class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     //MARK: - Properties
     let networkingRequest:NasaApi = NasaApi(config: .default)
-    var nasaData: [String:AnyObject] = [:]
+    var nasaData: [String:AnyObject]?
     var roverDetails: [RoverPhoto] = []
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
 
     override func viewDidLoad() {
-        self.collectionView?.dataSource = nil
         super.viewDidLoad()
         setLayout()
-        networkingRequest.fetchData { (fetchSuccess, fetchedNasaImageData) in
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        if(nasaData == nil){
+        activityIndicator.startAnimating()
+        DispatchQueue.global(qos: .background).async {
+        self.networkingRequest.fetchData { (fetchSuccess, fetchedNasaImageData) in
             if fetchSuccess {
-               self.nasaData = fetchedNasaImageData
-                self.grabImageFromJson(completion: { (roverImages) in
-                    self.roverDetails = roverImages
-                    self.collectionView?.dataSource = self
-                })
+                DispatchQueue.main.async {
+                    self.nasaData = fetchedNasaImageData
+                    self.grabImageFromJson(completion: { (roverImages) in
+                        self.roverDetails = roverImages
+                        self.collectionView?.dataSource = self
+                        self.activityIndicator.stopAnimating()
+                        self.collectionView?.reloadData()
+                    })
+                }
             } else {
                 fatalError()
             }
         }
     }
+        
+    }
+    }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return (nasaData == nil) ? 0 : 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return 15
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -57,12 +73,25 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
     func setLayout(){
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let collectionViewWidth = collectionView!.contentSize.width
+        let label = UILabel()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
         layout.itemSize = CGSize(width: collectionViewWidth/2, height: 100)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
+        label.text = "Loading your images"
+        activityIndicator.center = self.view.center
+        activityIndicator.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
+        activityIndicator.addSubview(label)
+        label.textAlignment = NSTextAlignment.center
+        label.frame = CGRect(x: 40 + 5,
+                             y: 0,
+                             width: 50 - 40 - 15,
+                             height: 20)
+        activityIndicator.bringSubview(toFront: self.view)
+        activityIndicator.color = .white
+        activityIndicator.hidesWhenStopped = true
         self.collectionView!.collectionViewLayout = layout
-        self.collectionView!.backgroundView = UIImageView(image: #imageLiteral(resourceName: "background"))
+        self.collectionView!.backgroundView = activityIndicator
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -76,13 +105,13 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
     
     func grabImageFromJson(completion: ([RoverPhoto])->Void){
         var count = 0
-        let allPhotos:[[String:AnyObject]] = nasaData["photos"] as! [[String:AnyObject]]
+        let allPhotos:[[String:AnyObject]] = nasaData!["photos"] as! [[String:AnyObject]]
         var allRover: [RoverPhoto] = []
         var roverName: String
         var roverDate: String
         var roverImage: UIImage = UIImage()
         
-        while  count <= 9 {
+        while  count <= 15 {
         let selectedPhoto: [String:AnyObject] = allPhotos[Int (arc4random_uniform(UInt32(allPhotos.count)))]
         roverName = selectedPhoto["rover"]?["name"] as! String
         roverDate = selectedPhoto["rover"]?["landing_date"] as! String
@@ -110,6 +139,17 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
 }
         completion(allRover)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MailSegue"{
+            let sender = sender as! UIButton!
+            let mailPostcardVC = segue.destination as! MailPostcardVC
+            let selectedCell: NasaImageCell = sender!.superview?.superview as! NasaImageCell
+            let selectedCellRoverImage: UIImage = selectedCell.nasaPhoto.image!
+            mailPostcardVC.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
+            mailPostcardVC.postCardRoverImage.image = selectedCellRoverImage
+    }
+}
 
 }
 
