@@ -14,6 +14,7 @@ class MailPostcardVC: UIViewController {
     @IBOutlet weak var sendMessageButton: UIButton!
     @IBOutlet weak var mailMessageTextView: UITextView!
     @IBOutlet weak var postCardRoverImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mailMessageTextView.isHidden = true
@@ -22,9 +23,6 @@ class MailPostcardVC: UIViewController {
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     @IBAction func roverImageTapped(_ sender: Any) {
         sendMessageButton.isEnabled = true
         mailMessageTextView.isHidden = false
@@ -38,6 +36,7 @@ class MailPostcardVC: UIViewController {
     }
 }
 
+//MARK: - Extensions
 extension UIView {
     func screenShot() -> UIImage {
         UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, UIScreen.main.scale)
