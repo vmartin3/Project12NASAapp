@@ -8,31 +8,47 @@
 
 import UIKit
 
-class MailPostcardVC: UIViewController {
+class MailPostcardVC: UIViewController{
 
-    @IBOutlet weak var postCardView: UIImageView!
+    @IBOutlet weak var postCardView: UIView!
     @IBOutlet weak var sendMessageButton: UIButton!
     @IBOutlet weak var mailMessageTextView: UITextView!
     @IBOutlet weak var postCardRoverImage: UIImageView!
     
+    @IBOutlet weak var addTextLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         mailMessageTextView.isHidden = true
         sendMessageButton.isEnabled = false
         postCardRoverImage.isUserInteractionEnabled = true
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MailPostcardVC.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.isStatusBarHidden = true
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 
+    @IBAction func homeButtonPressed(_ sender: Any) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
     @IBAction func roverImageTapped(_ sender: Any) {
         sendMessageButton.isEnabled = true
         mailMessageTextView.isHidden = false
-        
+        addTextLabel.isHidden = true
     }
     @IBAction func sendMessageButtonTapped(_ sender: Any) {
-        let imageToMail:UIImage = postCardView.screenShot()
+        let imageToMail:UIImage = self.postCardView.screenShot()
         let mailClient: MailClient = MailClient()
         mailClient.imageData = UIImagePNGRepresentation(imageToMail)
         mailClient.checkMailSendCapability()
+        present(mailClient, animated: true, completion: nil)
     }
 }
 

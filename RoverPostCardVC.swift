@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "NasaCell"
 
-enum RoverImageGenerator: Error{
+enum RoverImageGeneratorErrors: Error{
     case couldNotConvertString(String)
     case noImageFound(String)
     case couldNotConvertDataToImage(String)
@@ -19,7 +19,7 @@ enum RoverImageGenerator: Error{
 class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     //MARK: - Properties
     let networkingRequest:NASAClient = NASAClient(config: .default)
-    let numOfImagesToShow: Int = 15
+    let numOfImagesToShow: Int = 16
     var nasaData: [String:AnyObject]?
     var roverDetails: [RoverPhoto] = []
     
@@ -44,13 +44,17 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
                     if fetchSuccess {
                         //Update the properties and any UI componenets on main thread
                         DispatchQueue.main.async {
+                            do{
                             self.nasaData = fetchedNasaImageData
-                            self.grabImageFromJson(completion: { (roverImages) in
+                            try self.grabImageFromJson(completion: { (roverImages) in
                             self.roverDetails = roverImages
                             self.collectionView?.dataSource = self
                             self.activityIndicator.stopAnimating()
                             self.collectionView?.reloadData()
-                    })
+                            })
+                            }catch{
+                                
+                            }
                 }
             } else {
                 //If images cannot be retrieved crash the program - nothing else can be done without them
@@ -74,6 +78,17 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! NasaImageCell
         
+        if indexPath.row == 0 {
+            cell.nasaPhoto.image = UIImage(named: "HeaderImage.jpg")
+            cell.roverDetailLabel.isHidden = true
+            cell.roverNameLabel.isHidden = true
+            cell.actionButton.isHidden = true
+            return cell
+        }
+        
+        cell.headerIcon.isHidden = true
+        cell.headerInfoButton.isHidden = true
+        cell.headerLabel.isHidden = true
         cell.roverDetailLabel.text = self.roverDetails[indexPath.row].date
         cell.roverNameLabel.text = self.roverDetails[indexPath.row].roverName
         cell.nasaPhoto.image = self.roverDetails[indexPath.row].thumbnailImage
@@ -81,16 +96,17 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         return cell
     }
     
+    
     func setLayout(){
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let collectionViewWidth = collectionView!.contentSize.width
         let label = UILabel()
         
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: collectionViewWidth/2, height: 100)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        label.text = "Loading your images"
+        //label.text = "Loading your images"
         
         activityIndicator.center = self.view.center
         activityIndicator.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
@@ -99,15 +115,22 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         activityIndicator.color = .white
         activityIndicator.hidesWhenStopped = true
         
-        label.textAlignment = NSTextAlignment.center
-        label.frame = CGRect(x: 40 + 5,
-                             y: 0,
-                             width: 50 - 40 - 15,
-                             height: 20)
+       // label.textAlignment = NSTextAlignment.center
+      //  label.frame = CGRect(x: 40 + 5,
+//                             y: 0,
+//                             width: 50 - 40 - 15,
+//                             height: 20)
         
         
         self.collectionView!.collectionViewLayout = layout
         self.collectionView!.backgroundView = activityIndicator
+    }
+    
+    @IBAction func infoButtonPressed(_ sender: Any) {
+        let alert: UIAlertController = UIAlertController(title: "Welcome", message: "This is the Nasa Rover Galleries App. This app collects images from the rovers NASA currently has on Mars. Tap the icon in the bottom right of a image you like to add some text and send a postcard to a fried!", preferredStyle: .alert)
+        let okay = UIAlertAction(title: "Got It", style: .default, handler: nil)
+        alert.addAction(okay)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -115,12 +138,19 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         //Make the first row a headeer type row than spans the width of the screen
         if indexPath.row == 0
         {
-            return CGSize(width: collectionView.contentSize.width, height: 100)
+            return CGSize(width: collectionView.contentSize.width, height: 250)
         }
-        return CGSize(width: 160, height: 70);
+        return CGSize(width: 256, height: 165);
     }
     
-    func grabImageFromJson(completion: ([RoverPhoto])->Void){
+    // Mark: Error reporting
+    func reportError(message: String) {
+        let alert = UIAlertController(title: "Oops!", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Got it", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func grabImageFromJson(completion: ([RoverPhoto])->Void) throws {
         var count = 0
         let allPhotos:[[String:AnyObject]] = nasaData!["photos"] as! [[String:AnyObject]]
         var allRover: [RoverPhoto] = []
@@ -135,19 +165,16 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         roverDate = selectedPhoto["rover"]?["landing_date"] as! String
         let imageString:String = selectedPhoto["img_src"] as! String
         guard let imageURL: URL = URL(string: imageString) else {
-            print("Could not convert imagestring to URL")
-            return
+            throw RoverImageGeneratorErrors.couldNotConvertString("Could not create image URL String")
         }
         do {
             let imageData = try Data(contentsOf: imageURL)
             guard let image = UIImage(data: imageData) else {
-                //FIXME: - Fix This return statement
-                print("error no image found")
-                return
+                throw RoverImageGeneratorErrors.couldNotConvertDataToImage("Could not convert to image")
             }
             roverImage = image
         } catch {
-            print("error converting url to data and image")
+            reportError(message: "Error converting or getting images from space")
         }
             
         let rover  = RoverPhoto(name: roverName, date: roverDate, image: roverImage)

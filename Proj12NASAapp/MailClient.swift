@@ -26,9 +26,9 @@ class MailClient: UIViewController,MFMailComposeViewControllerDelegate{
         let composeVC = MFMailComposeViewController()
         composeVC.mailComposeDelegate = self
         // Configure the fields of the interface.
-        composeVC.setToRecipients(["vernonmaritn11@gmail.com.com"])
+        composeVC.setToRecipients(["vernonmartin11@gmail.com"])
         composeVC.setSubject("A Message From Space!")
-        composeVC.setMessageBody("Hello this is my message body!", isHTML: false)
+        composeVC.setMessageBody("I hope all is well, check out this image from space!", isHTML: false)
         composeVC.addAttachmentData(imageData!, mimeType:  "image/png", fileName: "roverImage.png")
         // Present the view controller modally.
         self.present(composeVC, animated: true, completion: nil)
@@ -37,7 +37,9 @@ class MailClient: UIViewController,MFMailComposeViewControllerDelegate{
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         // Check the result or perform other tasks.
         // Dismiss the mail compose view controller.
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
+        presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
 }
+
+}
+    
+

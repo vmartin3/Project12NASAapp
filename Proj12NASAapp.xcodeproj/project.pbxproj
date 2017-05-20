@@ -246,6 +246,7 @@
 				TargetAttributes = {
 					763355F91ECB6AD2000AA619 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = Z394YH8B5F;
 						ProvisioningStyle = Automatic;
 					};
 					763356101ECB6AD2000AA619 = {
@@ -472,11 +473,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z394YH8B5F;
 				INFOPLIST_FILE = Proj12NASAapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VernonMartin.Proj12NASAapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -484,11 +487,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z394YH8B5F;
 				INFOPLIST_FILE = Proj12NASAapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VernonMartin.Proj12NASAapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
