@@ -16,5 +16,5 @@ class NasaImageCell: UICollectionViewCell {
     @IBOutlet weak var roverNameLabel: UILabel!
     @IBOutlet weak var roverDetailLabel: UILabel!
     @IBOutlet weak var actionButton: UIButton!
-    
+    @IBOutlet weak var homeButton: UIButton!
 }

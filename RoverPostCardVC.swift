@@ -19,7 +19,7 @@ enum RoverImageGeneratorErrors: Error{
 class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     //MARK: - Properties
     let networkingRequest:NASAClient = NASAClient(config: .default)
-    let numOfImagesToShow: Int = 16
+    let numOfImagesToShow: Int = 15
     var nasaData: [String:AnyObject]?
     var roverDetails: [RoverPhoto] = []
     
@@ -89,6 +89,7 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         cell.headerIcon.isHidden = true
         cell.headerInfoButton.isHidden = true
         cell.headerLabel.isHidden = true
+        cell.homeButton.isHidden = true
         cell.roverDetailLabel.text = self.roverDetails[indexPath.row].date
         cell.roverNameLabel.text = self.roverDetails[indexPath.row].roverName
         cell.nasaPhoto.image = self.roverDetails[indexPath.row].thumbnailImage
@@ -140,7 +141,7 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         {
             return CGSize(width: collectionView.contentSize.width, height: 250)
         }
-        return CGSize(width: 256, height: 165);
+        return CGSize(width: 384, height: 165);
     }
     
     // Mark: Error reporting

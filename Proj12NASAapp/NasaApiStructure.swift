@@ -41,9 +41,13 @@ protocol Endpoint {
 enum MarsRover: Endpoint {
     
     case Rovers(roverName: String)
+    case Earth
     
     var baseURL: URL{
-        return URL(string: "https://api.nasa.gov/mars-photos/api/v1/rovers/")!
+        switch self {
+            case .Rover
+            return URL(string: "https://api.nasa.gov/mars-photos/api/v1/rovers/")!
+        }
     }
     
     var apiKey: String{
