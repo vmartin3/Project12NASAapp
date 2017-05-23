@@ -16,6 +16,7 @@ class SearchController: UITableViewController {
 
 }
 
+//MARK: - Extensions
 extension SearchController : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let mapView = mapView,
@@ -33,6 +34,7 @@ extension SearchController : UISearchResultsUpdating {
         }
     }
     
+    //Sets the display on the search table to show the city and state for each item that is queried
     func getAddress(selectedItem:MKPlacemark) -> String {
         guard let city = selectedItem.locality,
             let state = selectedItem.administrativeArea else {return ""}
@@ -42,6 +44,7 @@ extension SearchController : UISearchResultsUpdating {
         return address
     }
 }
+
 
 extension SearchController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,6 +60,7 @@ extension SearchController {
     }
 }
 
+//Implements drop pin delegate method to drop pin on the map based on selected item
 extension SearchController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = matchingItems[indexPath.row].placemark

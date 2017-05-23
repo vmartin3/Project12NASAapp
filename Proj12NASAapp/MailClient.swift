@@ -35,7 +35,6 @@ class MailClient: UIViewController,MFMailComposeViewControllerDelegate{
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        // Check the result or perform other tasks.
         // Dismiss the mail compose view controller.
         presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
 }

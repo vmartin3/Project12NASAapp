@@ -34,27 +34,29 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //While fetching data show activity monitor so user knows something is loading
+        //If the data to be displayed is nil, show activity monitor so users know that the app is working to get it
         if(nasaData == nil){
             activityIndicator.startAnimating()
             
             //Make the network fetch request on the background thread
             DispatchQueue.global(qos: .background).async {
-                self.networkingRequest.fetchData { (fetchSuccess, fetchedNasaImageData) in
+                self.networkingRequest.fetchData(url: MarsRover.Rovers(roverName: Rovers.Curiosity.rawValue).fullRequest) { (fetchSuccess, fetchedNasaImageData) in
                     if fetchSuccess {
                         //Update the properties and any UI componenets on main thread
                         DispatchQueue.main.async {
                             do{
-                            self.nasaData = fetchedNasaImageData
-                            try self.grabImageFromJson(completion: { (roverImages) in
-                            self.roverDetails = roverImages
-                            self.collectionView?.dataSource = self
-                            self.activityIndicator.stopAnimating()
-                            self.collectionView?.reloadData()
+                                self.nasaData = fetchedNasaImageData
+                                try self.createRover(completion: { (roverImages) in
+                                self.roverDetails = roverImages
+                                self.collectionView?.dataSource = self
+                                self.activityIndicator.stopAnimating()
+                                self.collectionView?.reloadData()
                             })
                             }catch{
+                            let message = DisplayErrorMessage(message: "Could not grab images succesfully", view: self)
+                            message.showMessage()
                                 
-                            }
+                    }
                 }
             } else {
                 //If images cannot be retrieved crash the program - nothing else can be done without them
@@ -78,6 +80,7 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! NasaImageCell
         
+        //Sets look and feel of the header cell
         if indexPath.row == 0 {
             cell.nasaPhoto.image = UIImage(named: "HeaderImage.jpg")
             cell.roverDetailLabel.isHidden = true
@@ -86,6 +89,7 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
             return cell
         }
         
+        //Sets look at feel for other cells in the collection view
         cell.headerIcon.isHidden = true
         cell.headerInfoButton.isHidden = true
         cell.headerLabel.isHidden = true
@@ -99,9 +103,10 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
     
     
     func setLayout(){
+        self.navigationController?.isNavigationBarHidden = true
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let collectionViewWidth = collectionView!.contentSize.width
-        let label = UILabel()
+        //let label = UILabel()
         
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: collectionViewWidth/2, height: 100)
@@ -111,7 +116,7 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         
         activityIndicator.center = self.view.center
         activityIndicator.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
-        activityIndicator.addSubview(label)
+        //view.addSubview(label)
         activityIndicator.bringSubview(toFront: self.view)
         activityIndicator.color = .white
         activityIndicator.hidesWhenStopped = true
@@ -127,6 +132,7 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         self.collectionView!.backgroundView = activityIndicator
     }
     
+    //Displays an alert message that provides info on how to use the app
     @IBAction func infoButtonPressed(_ sender: Any) {
         let alert: UIAlertController = UIAlertController(title: "Welcome", message: "This is the Nasa Rover Galleries App. This app collects images from the rovers NASA currently has on Mars. Tap the icon in the bottom right of a image you like to add some text and send a postcard to a fried!", preferredStyle: .alert)
         let okay = UIAlertAction(title: "Got It", style: .default, handler: nil)
@@ -144,15 +150,9 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         return CGSize(width: 384, height: 165);
     }
     
-    // Mark: Error reporting
-    func reportError(message: String) {
-        let alert = UIAlertController(title: "Oops!", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Got it", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func grabImageFromJson(completion: ([RoverPhoto])->Void) throws {
+    func createRover(completion: ([RoverPhoto])->Void) throws {
         var count = 0
+        let increaseByOne = 1
         let allPhotos:[[String:AnyObject]] = nasaData!["photos"] as! [[String:AnyObject]]
         var allRover: [RoverPhoto] = []
         var roverName: String
@@ -162,30 +162,25 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         while  count <= numOfImagesToShow {
         //Randomly choose images out of all the fetched rover images
         let selectedPhoto: [String:AnyObject] = allPhotos[Int (arc4random_uniform(UInt32(allPhotos.count)))]
-        roverName = selectedPhoto["rover"]?["name"] as! String
-        roverDate = selectedPhoto["rover"]?["landing_date"] as! String
-        let imageString:String = selectedPhoto["img_src"] as! String
-        guard let imageURL: URL = URL(string: imageString) else {
-            throw RoverImageGeneratorErrors.couldNotConvertString("Could not create image URL String")
-        }
-        do {
-            let imageData = try Data(contentsOf: imageURL)
-            guard let image = UIImage(data: imageData) else {
-                throw RoverImageGeneratorErrors.couldNotConvertDataToImage("Could not convert to image")
+            
+            guard let name = selectedPhoto["rover"]?["name"], let date = selectedPhoto["rover"]?["landing_date"] else {
+                print("Error grabbing data from dictionary")
+                return
             }
-            roverImage = image
-        } catch {
-            reportError(message: "Error converting or getting images from space")
-        }
+            
+        roverName = name as! String
+        roverDate = date as! String
+        roverImage = selectedPhoto.createImageFromJSONString(dataArray: selectedPhoto, key: "img_src")
             
         let rover  = RoverPhoto(name: roverName, date: roverDate, image: roverImage)
         allRover.append(rover)
-        count += 1
+        count += increaseByOne
             
         }
         completion(allRover)
     }
     
+    //Segue to postcard view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MailSegue"{
             let sender = sender as! UIButton!

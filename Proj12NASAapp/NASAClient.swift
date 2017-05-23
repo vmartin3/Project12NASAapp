@@ -11,11 +11,11 @@ import Foundation
 typealias JSONDataObject = [String:AnyObject]
 let apiKey = "cHE99pnRwez9V6O6Aj7G8iQfipLALVQFGCmO0r4M"
 
+//MARK: - Error Messages
 enum NetworkingErrors: Error{
     case couldNotConnect
     case noDataRecieved(String)
     case couldNotConvertDataToJson(String)
-    
 }
 
 class NASAClient: APIClient {
@@ -29,8 +29,8 @@ class NASAClient: APIClient {
         self.configuration = config
     }
     
-    func fetchData(completion: @escaping (Bool, JSONDataObject)->Void){
-        let requestURL = MarsRover.Rovers(roverName: Rovers.Curiosity.rawValue).fullRequest
+    func fetchData(url: URLRequest, completion: @escaping (Bool, JSONDataObject)->Void){
+        let requestURL = url
         let session = URLSession.shared
         let task = session.dataTask(with: requestURL) { (data, response, error) in
             guard error == nil else {

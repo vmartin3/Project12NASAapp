@@ -17,6 +17,9 @@
 		7633562F1ECB7DD7000AA619 /* RoverPostCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7633562E1ECB7DD7000AA619 /* RoverPostCardVC.swift */; };
 		7668D0741ED1F5AF00890F47 /* EyeInTheSkyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7668D0731ED1F5AF00890F47 /* EyeInTheSkyVC.swift */; };
 		7668D0761ED1FA4900890F47 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7668D0751ED1FA4900890F47 /* SearchController.swift */; };
+		7668D0781ED2317F00890F47 /* SatelliteImageDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7668D0771ED2317F00890F47 /* SatelliteImageDisplayVC.swift */; };
+		7668D07A1ED36C7700890F47 /* LandingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7668D0791ED36C7700890F47 /* LandingPageVC.swift */; };
+		7668D07C1ED376FB00890F47 /* DisplayMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7668D07B1ED376FB00890F47 /* DisplayMessage.swift */; };
 		767C49931ECD44D6000D369C /* MailPostcardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767C49921ECD44D6000D369C /* MailPostcardVC.swift */; };
 		76D9D60B1ED1F10700903A3A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D9D60A1ED1F10700903A3A /* LocationManager.swift */; };
 		76E0B1B51ECB85420010CBEE /* NasaImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E0B1B41ECB85420010CBEE /* NasaImageCell.swift */; };
@@ -60,6 +63,9 @@
 		7633562E1ECB7DD7000AA619 /* RoverPostCardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoverPostCardVC.swift; path = ../RoverPostCardVC.swift; sourceTree = "<group>"; };
 		7668D0731ED1F5AF00890F47 /* EyeInTheSkyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeInTheSkyVC.swift; sourceTree = "<group>"; };
 		7668D0751ED1FA4900890F47 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		7668D0771ED2317F00890F47 /* SatelliteImageDisplayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SatelliteImageDisplayVC.swift; sourceTree = "<group>"; };
+		7668D0791ED36C7700890F47 /* LandingPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPageVC.swift; sourceTree = "<group>"; };
+		7668D07B1ED376FB00890F47 /* DisplayMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayMessage.swift; sourceTree = "<group>"; };
 		767C49921ECD44D6000D369C /* MailPostcardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailPostcardVC.swift; sourceTree = "<group>"; };
 		76D9D60A1ED1F10700903A3A /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		76E0B1B41ECB85420010CBEE /* NasaImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NasaImageCell.swift; sourceTree = "<group>"; };
@@ -152,7 +158,9 @@
 		767C498C1ECC8A02000D369C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7668D0791ED36C7700890F47 /* LandingPageVC.swift */,
 				7668D0731ED1F5AF00890F47 /* EyeInTheSkyVC.swift */,
+				7668D0771ED2317F00890F47 /* SatelliteImageDisplayVC.swift */,
 				767C49921ECD44D6000D369C /* MailPostcardVC.swift */,
 				7633562E1ECB7DD7000AA619 /* RoverPostCardVC.swift */,
 			);
@@ -183,6 +191,7 @@
 			children = (
 				76EA52CA1ECDE497009ADBDE /* MailClient.swift */,
 				76E0B1BA1ECB95550010CBEE /* NasaApiStructure.swift */,
+				7668D07B1ED376FB00890F47 /* DisplayMessage.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -322,10 +331,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7668D07A1ED36C7700890F47 /* LandingPageVC.swift in Sources */,
 				7633562F1ECB7DD7000AA619 /* RoverPostCardVC.swift in Sources */,
+				7668D07C1ED376FB00890F47 /* DisplayMessage.swift in Sources */,
 				76E0B1B51ECB85420010CBEE /* NasaImageCell.swift in Sources */,
 				76E0B1B71ECB8F040010CBEE /* NASAClient.swift in Sources */,
 				76D9D60B1ED1F10700903A3A /* LocationManager.swift in Sources */,
+				7668D0781ED2317F00890F47 /* SatelliteImageDisplayVC.swift in Sources */,
 				767C49931ECD44D6000D369C /* MailPostcardVC.swift in Sources */,
 				76E0B1B91ECB93A40010CBEE /* RoverPhoto.swift in Sources */,
 				76E0B1BB1ECB95550010CBEE /* NasaApiStructure.swift in Sources */,

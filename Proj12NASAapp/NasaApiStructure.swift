@@ -8,12 +8,14 @@
 
 import Foundation
 
+//Different Rover Names
 enum Rovers: String {
     case Curiosity = "Curiosity"
     case Opportunity = "Opportunity"
     case Spirit = "Spirit"
 }
 
+//Different Camera Names
 enum CameraNames: String {
     case FHAZ = "fhaz"
     case RHAZ = "rhaz"
@@ -38,16 +40,13 @@ protocol Endpoint {
     var fullRequest: URLRequest { get }
 }
 
+//MarsRoverPostCard API Call Details
 enum MarsRover: Endpoint {
     
     case Rovers(roverName: String)
-    case Earth
     
     var baseURL: URL{
-        switch self {
-            case .Rover
             return URL(string: "https://api.nasa.gov/mars-photos/api/v1/rovers/")!
-        }
     }
     
     var apiKey: String{
@@ -65,6 +64,30 @@ enum MarsRover: Endpoint {
         let url = URL(string: path, relativeTo: baseURL)
         return URLRequest(url: url!)
     }
-        
-        
+}
+
+//Earth Satellite Image API Call details
+enum EarthImagery: Endpoint {
+    
+    case Earth(latitude: Double, longitude: Double)
+    
+    var baseURL: URL{
+        return URL(string: "https://api.nasa.gov/planetary/earth/")!
+    }
+    
+    var apiKey: String{
+        return "cHE99pnRwez9V6O6Aj7G8iQfipLALVQFGCmO0r4M"
+    }
+    
+    var path: String{
+        switch self{
+            case .Earth(let latitude, let longitude):
+            return "imagery?lon=\(longitude)&lat=\(latitude)&date=2017-02-01&cloud_score=False&api_key=\(apiKey)"
+        }
+    }
+    
+    var fullRequest: URLRequest{
+        let url = URL(string: path, relativeTo: baseURL)
+        return URLRequest(url: url!)
+    }
 }

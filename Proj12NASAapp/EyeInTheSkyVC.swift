@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
+//MARK: - Custom Protocol
 protocol HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark)
 }
@@ -19,47 +20,80 @@ class EyeInTheSkyVC: UIViewController {
     var resultSearchController:UISearchController? = nil
     var selectedPin:MKPlacemark? = nil
     var apiCall: NASAClient = NASAClient(config: .default)
+    var nasaData: [String:AnyObject]?
+    var earthSatelliteImage: UIImage?
 
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Instantiates Search View Controller
         LocationManager.sharedLocationInstance.determineMyCurrentLocation()
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! SearchController
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable 
         
+        //Adds search bar to the top navigation bar
         guard let searchBar = resultSearchController?.searchBar else {return}
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for places"
         navigationItem.titleView = resultSearchController?.searchBar
         
         resultSearchController?.hidesNavigationBarDuringPresentation = false
+        self.navigationController?.isNavigationBarHidden = false
         resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
         
+        //Passes mapview value from Location Manager Class and to this class making it accessable
         locationSearchTable.mapView = mapView
+        LocationManager.sharedLocationInstance.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
     }
     
-    func displayNasaImage(){
-        apiCall.fetchData { (fetchSuccess, nasaData) in
+    func prepareSatelliteImage(){
+        //Fetches Landsat 8 satellite imagery using the api based on the location the user searched for
+        apiCall.fetchData(url: EarthImagery.Earth(latitude: (selectedPin?.coordinate.latitude)!, longitude: (selectedPin?.coordinate.longitude)!).fullRequest) { (fetchSuccess, nasaData) in
             if fetchSuccess {
+                self.nasaData = nasaData
+                self.displayNasaImage(completion: {
+                })
+                DispatchQueue.main.async() {
+                self.performSegue(withIdentifier: "ShowImage", sender: self)
+                }
                 
             } else {
-                
+               let message = DisplayErrorMessage(message: "Error fetching satellite image data", view: self)
+                message.showMessage()
             }
         }
     }
-
+    
+    //Creates UIImage from the JSON array for selected key using custom Dictionary extension
+    func displayNasaImage(completion:() -> Void){
+        guard let data = nasaData else {
+            print("no data found")
+            return
+        }
+        earthSatelliteImage = nasaData?.createImageFromJSONString(dataArray: data, key: "url")
+    }
+    
+    //Segue to new VC to display image
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowImage"{
+        let destinationVC = segue.destination as! SatelliteImageDisplayVC
+        destinationVC.imageToDisplay = earthSatelliteImage
+        }
+    }
 }
 
+//MARK: - HandleMapSearch Protocol Implementation
 extension EyeInTheSkyVC: HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark){
-        // cache the pin
+        //Cache the pin so we can use it throughout this class
         selectedPin = placemark
-        // clear existing pins
         mapView.removeAnnotations(mapView.annotations)
+        
+        //Sets Pin annotation with the city and name of selected place
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
@@ -67,6 +101,8 @@ extension EyeInTheSkyVC: HandleMapSearch {
             let state = placemark.administrativeArea {
             annotation.subtitle = "\(city), \(state)"
         }
+        
+        //Add pin to app and focus in on the location where the pin is
         mapView.addAnnotation(annotation)
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
@@ -74,6 +110,7 @@ extension EyeInTheSkyVC: HandleMapSearch {
     }
 }
 
+//MARK: - MKMapViewDelegate
 extension EyeInTheSkyVC : MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
@@ -88,8 +125,28 @@ extension EyeInTheSkyVC : MKMapViewDelegate {
         let smallSquare = CGRect(x: 0, y: 0, width: 30, height: 30)
         let button = UIButton(frame: smallSquare)
         button.setBackgroundImage(UIImage(named: "Satellite"), for: .normal)
-        button.addTarget(self, action: Selector("displayNasaImage"), for: .touchUpInside)
+        button.addTarget(self, action: #selector(EyeInTheSkyVC.prepareSatelliteImage), for: .touchUpInside)
         pinView?.leftCalloutAccessoryView = button
         return pinView
+    }
+}
+
+//MARK: - Dictionary Class extension to convert dictionary object with key value to UIImage
+extension Dictionary{
+    func createImageFromJSONString(dataArray: [String:AnyObject], key: String) -> UIImage {
+        do{
+            let dictionaryParamter = dataArray[key]
+            let imageString:String = dictionaryParamter as! String
+            let imageURL = URL(string: imageString)
+            let imageData = try Data(contentsOf: imageURL!)
+            guard let image = UIImage(data: imageData) else {
+                print("Could not create image")
+                return UIImage()
+            }
+            return image
+        }catch {
+                print("Unable to create image")
+        }
+        return UIImage()
     }
 }

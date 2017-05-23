@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nkJ-sj-yQL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vMa-NC-abz">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Landing Page-->
         <scene sceneID="sml-ME-xvo">
             <objects>
-                <viewController id="nkJ-sj-yQL" sceneMemberID="viewController">
+                <viewController id="nkJ-sj-yQL" customClass="LandingPage" customModule="Proj12NASAapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PHI-k1-wyO"/>
                         <viewControllerLayoutGuide type="bottom" id="g7S-WL-ciF"/>
@@ -37,7 +37,7 @@
                                 </constraints>
                                 <state key="normal" image="Satellite"/>
                                 <connections>
-                                    <segue destination="bxr-jG-gxT" kind="show" id="Svt-Qh-kJC"/>
+                                    <segue destination="9JQ-0M-cth" kind="show" id="b09-Qq-40B"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6u-SY-ZBd">
@@ -74,7 +74,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nasa logo" translatesAutoresizingMaskIntoConstraints="NO" id="XsP-iZ-Kr0">
-                                <rect key="frame" x="269" y="71" width="103" height="55"/>
+                                <rect key="frame" x="269" y="115" width="103" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="18B-dW-Jdg"/>
                                     <constraint firstAttribute="height" constant="55" id="TJQ-vD-eKy"/>
@@ -82,7 +82,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Imagery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yw8-h4-Aej">
-                                <rect key="frame" x="337" y="67" width="196" height="63"/>
+                                <rect key="frame" x="337" y="111" width="196" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="196" id="Ju8-eL-HJf"/>
                                 </constraints>
@@ -119,10 +119,11 @@
                             <constraint firstItem="g7S-WL-ciF" firstAttribute="top" secondItem="XHC-yL-9ks" secondAttribute="bottom" constant="475" id="uKf-uD-wN9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="xEn-5f-fl8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zdb-b5-DEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="817.1875" y="-22.265625"/>
+            <point key="canvasLocation" x="1449" y="-291"/>
         </scene>
         <!--Eye In The SkyVC-->
         <scene sceneID="uG2-Oq-7Z7">
@@ -155,6 +156,8 @@
                     <connections>
                         <outlet property="mapView" destination="EWI-xd-gmj" id="EgT-Cf-dmh"/>
                         <outlet property="searchDisplayController" destination="vYa-cI-wKQ" id="Vz4-NG-Uvs"/>
+                        <segue destination="IwP-YK-hc8" kind="show" identifier="searchTableSegue" id="TZL-Rc-gOj"/>
+                        <segue destination="w4I-rU-xX5" kind="show" identifier="ShowImage" id="aZb-qT-nwg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Imm-yQ-k97" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -167,12 +170,12 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2331.25" y="-694.3359375"/>
+            <point key="canvasLocation" x="1733" y="-1570"/>
         </scene>
-        <!--View Controller-->
+        <!--Satellite Image DisplayVC-->
         <scene sceneID="AU5-aX-l1i">
             <objects>
-                <viewController id="w4I-rU-xX5" sceneMemberID="viewController">
+                <viewController id="w4I-rU-xX5" customClass="SatelliteImageDisplayVC" customModule="Proj12NASAapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Ab-2t-s5P"/>
                         <viewControllerLayoutGuide type="bottom" id="OMY-BD-gEc"/>
@@ -180,12 +183,46 @@
                     <view key="view" contentMode="scaleToFill" id="fIJ-Qs-Bsa">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hdI-IT-UGn">
+                                <rect key="frame" x="159.5" y="287.5" width="450" height="450"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="Db9-sD-O8p"/>
+                                    <constraint firstAttribute="width" constant="450" id="Dj6-KF-yAJ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="225"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here's the latest image of your selected location from the NASA Satellite Landsat 8!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="de1-m1-Ni7">
+                                <rect key="frame" x="159" y="199" width="451" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="451" id="9Ve-ob-e0I"/>
+                                    <constraint firstAttribute="height" constant="52" id="YvY-El-Oad"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="de1-m1-Ni7" firstAttribute="top" secondItem="8Ab-2t-s5P" secondAttribute="bottom" constant="135" id="CfT-8E-1P3"/>
+                            <constraint firstItem="hdI-IT-UGn" firstAttribute="top" secondItem="de1-m1-Ni7" secondAttribute="bottom" constant="36.5" id="FE6-fa-s2B"/>
+                            <constraint firstItem="hdI-IT-UGn" firstAttribute="centerY" secondItem="fIJ-Qs-Bsa" secondAttribute="centerY" id="PId-ej-qup"/>
+                            <constraint firstItem="de1-m1-Ni7" firstAttribute="centerX" secondItem="fIJ-Qs-Bsa" secondAttribute="centerX" id="XY4-Lx-PTH"/>
+                            <constraint firstItem="hdI-IT-UGn" firstAttribute="centerX" secondItem="fIJ-Qs-Bsa" secondAttribute="centerX" id="pEz-Q0-79v"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageGrabbedFromAPI" destination="hdI-IT-UGn" id="sgq-bY-byM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Kn-hJ-JPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2980" y="-694"/>
+            <point key="canvasLocation" x="3091" y="-1362"/>
         </scene>
         <!--Search Controller-->
         <scene sceneID="KOc-bi-Gxy">
@@ -229,13 +266,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Pe-f8-sih" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3670" y="-694"/>
+            <point key="canvasLocation" x="3092" y="-696"/>
         </scene>
         <!--Rover Post CardVC-->
         <scene sceneID="pN5-ex-dBA">
             <objects>
                 <collectionViewController restorationIdentifier="mainVC" storyboardIdentifier="mainVC" id="1e7-pT-DEk" customClass="RoverPostCardVC" customModule="Proj12NASAapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="CuC-Y4-5Q1">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="CuC-Y4-5Q1">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -246,7 +283,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="NKR-cj-fEu">
-                            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            <rect key="frame" x="0.0" y="-64" width="768" height="1024"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
                         <cells>
@@ -327,7 +364,7 @@
                                             </constraints>
                                             <state key="normal" image="Home"/>
                                             <connections>
-                                                <segue destination="nkJ-sj-yQL" kind="show" id="fjZ-Hf-3eC"/>
+                                                <segue destination="vMa-NC-abz" kind="show" id="fjZ-Hf-3eC"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -380,7 +417,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6S7-EA-nvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1566.40625" y="-22.265625"/>
+            <point key="canvasLocation" x="2332.03125" y="-22.265625"/>
         </scene>
         <!--Mail PostcardVC-->
         <scene sceneID="dpn-0T-S08">
@@ -523,25 +560,25 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2348" y="-22"/>
+            <point key="canvasLocation" x="3113.28125" y="-22.265625"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="XTi-zg-NKj">
+        <scene sceneID="fH7-lW-KJf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bxr-jG-gxT" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vMa-NC-abz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ApD-Mn-MPh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TVy-IV-SHb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="9JQ-0M-cth" kind="relationship" relationship="rootViewController" id="UZ7-c6-Cb8"/>
+                        <segue destination="nkJ-sj-yQL" kind="relationship" relationship="rootViewController" id="0At-hN-D2n"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6WF-ot-OTB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rcq-oo-Jkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1565.625" y="-694.3359375"/>
+            <point key="canvasLocation" x="620" y="-23"/>
         </scene>
     </scenes>
     <resources>
