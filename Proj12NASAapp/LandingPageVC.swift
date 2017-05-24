@@ -20,4 +20,7 @@ class LandingPage: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
 
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }

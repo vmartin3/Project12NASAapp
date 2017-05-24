@@ -13,7 +13,7 @@
         <!--Landing Page-->
         <scene sceneID="sml-ME-xvo">
             <objects>
-                <viewController id="nkJ-sj-yQL" customClass="LandingPage" customModule="Proj12NASAapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LandingPage" id="nkJ-sj-yQL" customClass="LandingPage" customModule="Proj12NASAapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PHI-k1-wyO"/>
                         <viewControllerLayoutGuide type="bottom" id="g7S-WL-ciF"/>
@@ -22,108 +22,119 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="0DA-24-wVq">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpaceLake" translatesAutoresizingMaskIntoConstraints="NO" id="0DA-24-wVq">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDL-P6-bao" userLabel="Divider">
-                                <rect key="frame" x="383" y="255" width="2" height="461"/>
+                                <rect key="frame" x="383" y="385" width="1" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHC-yL-9ks">
-                                <rect key="frame" x="117" y="421" width="128" height="128"/>
+                                <rect key="frame" x="128" y="448" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="KWG-iq-0c6"/>
                                     <constraint firstAttribute="height" constant="128" id="pOc-kp-HHW"/>
                                 </constraints>
-                                <state key="normal" image="Satellite"/>
+                                <state key="normal" image="satIcon"/>
                                 <connections>
                                     <segue destination="9JQ-0M-cth" kind="show" id="b09-Qq-40B"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6u-SY-ZBd">
-                                <rect key="frame" x="489" y="416" width="194" height="104"/>
+                                <rect key="frame" x="517" y="448" width="128" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="194" id="79D-fN-rhe"/>
-                                    <constraint firstAttribute="height" constant="104" id="Ygd-HG-nZ8"/>
+                                    <constraint firstAttribute="height" constant="128" id="XYH-F7-cyC"/>
+                                    <constraint firstAttribute="width" constant="128" id="bf7-Kz-ydE"/>
                                 </constraints>
-                                <state key="normal" image="rovericon"/>
+                                <state key="normal" image="postCardIcon"/>
                                 <connections>
                                     <segue destination="1e7-pT-DEk" kind="show" id="SDY-Jg-JM2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eye In the Sky" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMt-do-I5c">
-                                <rect key="frame" x="80" y="556" width="202" height="63"/>
-                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="0.42093857020547948" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="91" y="584" width="202" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="202" id="LrX-zg-QGZ"/>
                                     <constraint firstAttribute="height" constant="63" id="VZP-Sr-fJC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="23"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="23"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rover Post Card Maker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGD-Za-2fy">
-                                <rect key="frame" x="452" y="556" width="269" height="63"/>
-                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="0.42356057363013699" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="426" y="584" width="311" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="56G-nk-D8k"/>
-                                    <constraint firstAttribute="width" constant="269" id="oI7-SA-5wK"/>
+                                    <constraint firstAttribute="width" constant="311" id="oI7-SA-5wK"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="23"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="23"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nasa logo" translatesAutoresizingMaskIntoConstraints="NO" id="XsP-iZ-Kr0">
-                                <rect key="frame" x="269" y="115" width="103" height="55"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NasaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="XsP-iZ-Kr0">
+                                <rect key="frame" x="284" y="89" width="200" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="18B-dW-Jdg"/>
-                                    <constraint firstAttribute="height" constant="55" id="TJQ-vD-eKy"/>
-                                    <constraint firstAttribute="width" constant="103" id="Upf-jt-qeN"/>
+                                    <constraint firstAttribute="height" constant="106" id="TJQ-vD-eKy"/>
+                                    <constraint firstAttribute="width" constant="200" id="Upf-jt-qeN"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Imagery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yw8-h4-Aej">
-                                <rect key="frame" x="337" y="111" width="196" height="63"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NASA Imagery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yw8-h4-Aej">
+                                <rect key="frame" x="216" y="203" width="335" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="196" id="Ju8-eL-HJf"/>
+                                    <constraint firstAttribute="width" constant="335" id="Ju8-eL-HJf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="32"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="32"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mars Rover &amp; Landsat 8 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVt-5s-Nix">
+                                <rect key="frame" x="216" y="239" width="335" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="335" id="2pF-oH-oQT"/>
+                                    <constraint firstAttribute="height" constant="20" id="Fpy-Mg-2rn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yw8-h4-Aej" firstAttribute="leading" secondItem="uN7-U2-AXS" secondAttribute="leading" constant="337" id="1Yw-tq-nw8"/>
+                            <constraint firstItem="yw8-h4-Aej" firstAttribute="leading" secondItem="uN7-U2-AXS" secondAttribute="leading" constant="216" id="1Yw-tq-nw8"/>
                             <constraint firstItem="0DA-24-wVq" firstAttribute="top" secondItem="uN7-U2-AXS" secondAttribute="top" id="1eP-Pc-fRR"/>
-                            <constraint firstItem="gDL-P6-bao" firstAttribute="leading" secondItem="XHC-yL-9ks" secondAttribute="trailing" constant="138" id="3L0-Rq-Rsx"/>
+                            <constraint firstItem="s6u-SY-ZBd" firstAttribute="leading" secondItem="gDL-P6-bao" secondAttribute="trailing" constant="133" id="1w8-gM-hau"/>
+                            <constraint firstItem="gDL-P6-bao" firstAttribute="leading" secondItem="XHC-yL-9ks" secondAttribute="trailing" constant="127" id="3L0-Rq-Rsx"/>
                             <constraint firstItem="0DA-24-wVq" firstAttribute="leading" secondItem="uN7-U2-AXS" secondAttribute="leading" id="4Vu-J3-ou3"/>
-                            <constraint firstItem="s6u-SY-ZBd" firstAttribute="leading" secondItem="gDL-P6-bao" secondAttribute="trailing" constant="104" id="9Ax-7X-cKG"/>
-                            <constraint firstItem="gDL-P6-bao" firstAttribute="top" secondItem="uN7-U2-AXS" secondAttribute="top" constant="255" id="Bbo-JN-voI"/>
-                            <constraint firstItem="XsP-iZ-Kr0" firstAttribute="top" secondItem="PHI-k1-wyO" secondAttribute="bottom" constant="51" id="DOJ-6H-njU"/>
-                            <constraint firstItem="yw8-h4-Aej" firstAttribute="centerY" secondItem="XsP-iZ-Kr0" secondAttribute="centerY" id="Dad-Te-RtQ"/>
+                            <constraint firstItem="FVt-5s-Nix" firstAttribute="leading" secondItem="uN7-U2-AXS" secondAttribute="leadingMargin" constant="196" id="ATF-zc-oZZ"/>
+                            <constraint firstItem="gDL-P6-bao" firstAttribute="top" secondItem="uN7-U2-AXS" secondAttribute="top" constant="385" id="Bbo-JN-voI"/>
+                            <constraint firstItem="XsP-iZ-Kr0" firstAttribute="top" secondItem="PHI-k1-wyO" secondAttribute="bottom" constant="25" id="DOJ-6H-njU"/>
+                            <constraint firstItem="yw8-h4-Aej" firstAttribute="centerY" secondItem="XsP-iZ-Kr0" secondAttribute="centerY" constant="75" id="Dad-Te-RtQ"/>
                             <constraint firstItem="gDL-P6-bao" firstAttribute="centerX" secondItem="uN7-U2-AXS" secondAttribute="centerX" id="DpY-7f-ez3"/>
                             <constraint firstItem="tGD-Za-2fy" firstAttribute="baseline" secondItem="fMt-do-I5c" secondAttribute="baseline" id="H8q-sX-qc1"/>
-                            <constraint firstAttribute="trailing" secondItem="tGD-Za-2fy" secondAttribute="trailing" constant="47" id="Heg-uD-Qqo"/>
-                            <constraint firstItem="XsP-iZ-Kr0" firstAttribute="leading" secondItem="uN7-U2-AXS" secondAttribute="leading" constant="269" id="Nlo-TV-wXT"/>
+                            <constraint firstAttribute="trailing" secondItem="tGD-Za-2fy" secondAttribute="trailing" constant="31" id="Heg-uD-Qqo"/>
+                            <constraint firstItem="XsP-iZ-Kr0" firstAttribute="leading" secondItem="uN7-U2-AXS" secondAttribute="leading" constant="284" id="Nlo-TV-wXT"/>
+                            <constraint firstItem="FVt-5s-Nix" firstAttribute="top" secondItem="yw8-h4-Aej" secondAttribute="bottom" constant="8" symbolic="YES" id="Qc3-Dc-Fd1"/>
                             <constraint firstAttribute="trailing" secondItem="0DA-24-wVq" secondAttribute="trailing" id="TxH-4N-5v2"/>
-                            <constraint firstItem="XHC-yL-9ks" firstAttribute="leading" secondItem="uN7-U2-AXS" secondAttribute="leadingMargin" constant="97" id="Vnp-B2-xnw"/>
-                            <constraint firstItem="gDL-P6-bao" firstAttribute="leading" secondItem="fMt-do-I5c" secondAttribute="trailing" constant="101" id="bch-us-dTo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="s6u-SY-ZBd" secondAttribute="trailing" constant="65" id="chO-QG-kvI"/>
-                            <constraint firstItem="fMt-do-I5c" firstAttribute="leading" secondItem="uN7-U2-AXS" secondAttribute="leadingMargin" constant="60" id="dZG-ET-NOW"/>
-                            <constraint firstItem="tGD-Za-2fy" firstAttribute="top" secondItem="s6u-SY-ZBd" secondAttribute="bottom" constant="36" id="ggB-hg-zhP"/>
-                            <constraint firstItem="fMt-do-I5c" firstAttribute="top" secondItem="XHC-yL-9ks" secondAttribute="bottom" constant="7" id="ntm-RI-RtG"/>
+                            <constraint firstItem="XHC-yL-9ks" firstAttribute="leading" secondItem="uN7-U2-AXS" secondAttribute="leadingMargin" constant="108" id="Vnp-B2-xnw"/>
+                            <constraint firstItem="gDL-P6-bao" firstAttribute="leading" secondItem="fMt-do-I5c" secondAttribute="trailing" constant="90" id="bch-us-dTo"/>
+                            <constraint firstItem="fMt-do-I5c" firstAttribute="leading" secondItem="uN7-U2-AXS" secondAttribute="leadingMargin" constant="71" id="dZG-ET-NOW"/>
+                            <constraint firstItem="tGD-Za-2fy" firstAttribute="top" secondItem="s6u-SY-ZBd" secondAttribute="bottom" constant="8" id="h4O-gH-QzD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FVt-5s-Nix" secondAttribute="trailing" constant="197" id="mho-lI-Swz"/>
+                            <constraint firstItem="fMt-do-I5c" firstAttribute="top" secondItem="XHC-yL-9ks" secondAttribute="bottom" constant="8" id="ntm-RI-RtG"/>
                             <constraint firstItem="g7S-WL-ciF" firstAttribute="top" secondItem="0DA-24-wVq" secondAttribute="bottom" id="pCo-7J-SVl"/>
-                            <constraint firstItem="tGD-Za-2fy" firstAttribute="leading" secondItem="gDL-P6-bao" secondAttribute="trailing" constant="67" id="pNC-je-eDi"/>
-                            <constraint firstItem="gDL-P6-bao" firstAttribute="centerY" secondItem="XHC-yL-9ks" secondAttribute="centerY" id="r5C-gi-UNM"/>
-                            <constraint firstItem="yw8-h4-Aej" firstAttribute="top" secondItem="PHI-k1-wyO" secondAttribute="bottom" constant="47" id="uBm-P9-tgm"/>
-                            <constraint firstItem="g7S-WL-ciF" firstAttribute="top" secondItem="XHC-yL-9ks" secondAttribute="bottom" constant="475" id="uKf-uD-wN9"/>
+                            <constraint firstItem="tGD-Za-2fy" firstAttribute="leading" secondItem="gDL-P6-bao" secondAttribute="trailing" constant="42" id="pNC-je-eDi"/>
+                            <constraint firstItem="gDL-P6-bao" firstAttribute="centerY" secondItem="XHC-yL-9ks" secondAttribute="centerY" constant="103" id="r5C-gi-UNM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="s6u-SY-ZBd" secondAttribute="trailing" constant="103" id="sfh-1w-21g"/>
+                            <constraint firstItem="yw8-h4-Aej" firstAttribute="top" secondItem="PHI-k1-wyO" secondAttribute="bottom" constant="139" id="uBm-P9-tgm"/>
+                            <constraint firstItem="g7S-WL-ciF" firstAttribute="top" secondItem="XHC-yL-9ks" secondAttribute="bottom" constant="448" id="uKf-uD-wN9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xEn-5f-fl8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zdb-b5-DEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1449" y="-291"/>
+            <point key="canvasLocation" x="1448.4375" y="-291.2109375"/>
         </scene>
         <!--Eye In The SkyVC-->
         <scene sceneID="uG2-Oq-7Z7">
@@ -184,18 +195,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hdI-IT-UGn">
-                                <rect key="frame" x="159.5" y="287.5" width="450" height="450"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="450" id="Db9-sD-O8p"/>
-                                    <constraint firstAttribute="width" constant="450" id="Dj6-KF-yAJ"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="225"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here's the latest image of your selected location from the NASA Satellite Landsat 8!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="de1-m1-Ni7">
                                 <rect key="frame" x="159" y="199" width="451" height="52"/>
                                 <constraints>
@@ -206,12 +205,31 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hdI-IT-UGn">
+                                <rect key="frame" x="228" y="319" width="312" height="312"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="312" id="Db9-sD-O8p"/>
+                                    <constraint firstAttribute="width" constant="312" id="Dj6-KF-yAJ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="156"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="de1-m1-Ni7" firstAttribute="top" secondItem="8Ab-2t-s5P" secondAttribute="bottom" constant="135" id="CfT-8E-1P3"/>
-                            <constraint firstItem="hdI-IT-UGn" firstAttribute="top" secondItem="de1-m1-Ni7" secondAttribute="bottom" constant="36.5" id="FE6-fa-s2B"/>
-                            <constraint firstItem="hdI-IT-UGn" firstAttribute="centerY" secondItem="fIJ-Qs-Bsa" secondAttribute="centerY" id="PId-ej-qup"/>
+                            <constraint firstItem="hdI-IT-UGn" firstAttribute="top" secondItem="de1-m1-Ni7" secondAttribute="bottom" constant="68" id="FE6-fa-s2B"/>
+                            <constraint firstItem="hdI-IT-UGn" firstAttribute="centerY" secondItem="fIJ-Qs-Bsa" secondAttribute="centerY" constant="-37" id="PId-ej-qup"/>
                             <constraint firstItem="de1-m1-Ni7" firstAttribute="centerX" secondItem="fIJ-Qs-Bsa" secondAttribute="centerX" id="XY4-Lx-PTH"/>
                             <constraint firstItem="hdI-IT-UGn" firstAttribute="centerX" secondItem="fIJ-Qs-Bsa" secondAttribute="centerX" id="pEz-Q0-79v"/>
                         </constraints>
@@ -222,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Kn-hJ-JPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3091" y="-1362"/>
+            <point key="canvasLocation" x="3090.625" y="-1362.3046875"/>
         </scene>
         <!--Search Controller-->
         <scene sceneID="KOc-bi-Gxy">
@@ -272,7 +290,7 @@
         <scene sceneID="pN5-ex-dBA">
             <objects>
                 <collectionViewController restorationIdentifier="mainVC" storyboardIdentifier="mainVC" id="1e7-pT-DEk" customClass="RoverPostCardVC" customModule="Proj12NASAapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="CuC-Y4-5Q1">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="CuC-Y4-5Q1">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -584,12 +602,12 @@
     <resources>
         <image name="Email" width="128" height="96"/>
         <image name="Home" width="80" height="70"/>
-        <image name="Satellite" width="128" height="128"/>
+        <image name="NasaLogo" width="450" height="372"/>
         <image name="Saturn" width="72" height="37"/>
+        <image name="SpaceLake" width="1024" height="1024"/>
         <image name="infoIcon" width="50" height="128"/>
-        <image name="nasa logo" width="200" height="166"/>
+        <image name="postCardIcon" width="1024" height="1024"/>
         <image name="postcard" width="1000" height="667"/>
-        <image name="rovericon" width="164" height="104"/>
-        <image name="wallpaper" width="3404" height="2347"/>
+        <image name="satIcon" width="1024" height="1024"/>
     </resources>
 </document>

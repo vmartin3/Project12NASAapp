@@ -51,8 +51,6 @@ extension LocationManager : CLLocationManagerDelegate {
                 print("Could not find coordinates")
                 return
             }
-            let region = MKCoordinateRegion(center: coordinates, span: span)
-            mapView?.setRegion(region, animated: true)
         }
     }
     

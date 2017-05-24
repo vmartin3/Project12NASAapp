@@ -82,7 +82,7 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         
         //Sets look and feel of the header cell
         if indexPath.row == 0 {
-            cell.nasaPhoto.image = UIImage(named: "HeaderImage.jpg")
+            cell.nasaPhoto.image = UIImage(named: "sky.jpg")
             cell.roverDetailLabel.isHidden = true
             cell.roverNameLabel.isHidden = true
             cell.actionButton.isHidden = true
@@ -106,27 +106,17 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         self.navigationController?.isNavigationBarHidden = true
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let collectionViewWidth = collectionView!.contentSize.width
-        //let label = UILabel()
         
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: collectionViewWidth/2, height: 100)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        //label.text = "Loading your images"
         
         activityIndicator.center = self.view.center
-        activityIndicator.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
-        //view.addSubview(label)
+        activityIndicator.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "sky"))
         activityIndicator.bringSubview(toFront: self.view)
         activityIndicator.color = .white
         activityIndicator.hidesWhenStopped = true
-        
-       // label.textAlignment = NSTextAlignment.center
-      //  label.frame = CGRect(x: 40 + 5,
-//                             y: 0,
-//                             width: 50 - 40 - 15,
-//                             height: 20)
-        
         
         self.collectionView!.collectionViewLayout = layout
         self.collectionView!.backgroundView = activityIndicator
@@ -138,6 +128,10 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         let okay = UIAlertAction(title: "Got It", style: .default, handler: nil)
         alert.addAction(okay)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -187,7 +181,7 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
             let mailPostcardVC = segue.destination as! MailPostcardVC
             let selectedCell: NasaImageCell = sender!.superview?.superview as! NasaImageCell
             let selectedCellRoverImage: UIImage = selectedCell.nasaPhoto.image!
-            mailPostcardVC.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
+            mailPostcardVC.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "sky"))
             mailPostcardVC.postCardRoverImage.image = selectedCellRoverImage
         }
     }

@@ -29,7 +29,7 @@ class NASAClient: APIClient {
         self.configuration = config
     }
     
-    func fetchData(url: URLRequest, completion: @escaping (Bool, JSONDataObject)->Void){
+    func fetchData(url: URLRequest, completion: @escaping (Bool, JSONDataObject)-> Void) {
         let requestURL = url
         let session = URLSession.shared
         let task = session.dataTask(with: requestURL) { (data, response, error) in

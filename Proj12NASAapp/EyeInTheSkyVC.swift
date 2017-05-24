@@ -27,6 +27,8 @@ class EyeInTheSkyVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //MARK: - ViewController Set Up
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         //Instantiates Search View Controller
         LocationManager.sharedLocationInstance.determineMyCurrentLocation()
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! SearchController
@@ -124,7 +126,7 @@ extension EyeInTheSkyVC : MKMapViewDelegate {
         pinView?.canShowCallout = true
         let smallSquare = CGRect(x: 0, y: 0, width: 30, height: 30)
         let button = UIButton(frame: smallSquare)
-        button.setBackgroundImage(UIImage(named: "Satellite"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "satellite1"), for: .normal)
         button.addTarget(self, action: #selector(EyeInTheSkyVC.prepareSatelliteImage), for: .touchUpInside)
         pinView?.leftCalloutAccessoryView = button
         return pinView

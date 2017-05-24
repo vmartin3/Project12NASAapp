@@ -15,10 +15,14 @@ class SatelliteImageDisplayVC: UIViewController {
     //Sets look and feel for view controller 
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageGrabbedFromAPI.layer.masksToBounds = true
+        imageGrabbedFromAPI.layer.borderWidth = 3
+        imageGrabbedFromAPI.layer.borderColor = UIColor.white.cgColor
+        
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "SpaceLake"))
         imageGrabbedFromAPI.image = imageToDisplay
     }
 }
