@@ -22,7 +22,7 @@ class SatelliteImageDisplayVC: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "SpaceLake"))
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Wallpaper2"))
         imageGrabbedFromAPI.image = imageToDisplay
     }
 }

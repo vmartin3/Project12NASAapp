@@ -15,6 +15,10 @@ protocol HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark)
 }
 
+enum EyeInTheSkyErrors:Error{
+    case UnableToCreateImage(String)
+}
+
 class EyeInTheSkyVC: UIViewController {
     
     var resultSearchController:UISearchController? = nil
@@ -27,8 +31,8 @@ class EyeInTheSkyVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //MARK: - ViewController Set Up
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        //MARK: - ViewController Set Up
         //Instantiates Search View Controller
         LocationManager.sharedLocationInstance.determineMyCurrentLocation()
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! SearchController
@@ -76,7 +80,11 @@ class EyeInTheSkyVC: UIViewController {
             print("no data found")
             return
         }
-        earthSatelliteImage = nasaData?.createImageFromJSONString(dataArray: data, key: "url")
+        do{
+        earthSatelliteImage = try nasaData?.createImageFromJSONString(dataArray: data, key: "url")
+        } catch {
+            print("Unable to create image from JSON")
+        }
     }
     
     //Segue to new VC to display image
@@ -126,7 +134,7 @@ extension EyeInTheSkyVC : MKMapViewDelegate {
         pinView?.canShowCallout = true
         let smallSquare = CGRect(x: 0, y: 0, width: 30, height: 30)
         let button = UIButton(frame: smallSquare)
-        button.setBackgroundImage(UIImage(named: "satellite1"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "SatelliteButtonIcon"), for: .normal)
         button.addTarget(self, action: #selector(EyeInTheSkyVC.prepareSatelliteImage), for: .touchUpInside)
         pinView?.leftCalloutAccessoryView = button
         return pinView
@@ -135,7 +143,7 @@ extension EyeInTheSkyVC : MKMapViewDelegate {
 
 //MARK: - Dictionary Class extension to convert dictionary object with key value to UIImage
 extension Dictionary{
-    func createImageFromJSONString(dataArray: [String:AnyObject], key: String) -> UIImage {
+    func createImageFromJSONString(dataArray: [String:AnyObject], key: String) throws -> UIImage{
         do{
             let dictionaryParamter = dataArray[key]
             let imageString:String = dictionaryParamter as! String
@@ -147,8 +155,7 @@ extension Dictionary{
             }
             return image
         }catch {
-                print("Unable to create image")
+                throw EyeInTheSkyErrors.UnableToCreateImage("Unable to create image")
         }
-        return UIImage()
     }
 }

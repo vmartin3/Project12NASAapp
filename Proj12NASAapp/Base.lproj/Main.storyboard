@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpaceLake" translatesAutoresizingMaskIntoConstraints="NO" id="0DA-24-wVq">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wallpaper2" translatesAutoresizingMaskIntoConstraints="NO" id="0DA-24-wVq">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDL-P6-bao" userLabel="Divider">
@@ -35,7 +35,7 @@
                                     <constraint firstAttribute="width" constant="128" id="KWG-iq-0c6"/>
                                     <constraint firstAttribute="height" constant="128" id="pOc-kp-HHW"/>
                                 </constraints>
-                                <state key="normal" image="satIcon"/>
+                                <state key="normal" image="EyeInTheSkyIcon"/>
                                 <connections>
                                     <segue destination="9JQ-0M-cth" kind="show" id="b09-Qq-40B"/>
                                 </connections>
@@ -46,7 +46,7 @@
                                     <constraint firstAttribute="height" constant="128" id="XYH-F7-cyC"/>
                                     <constraint firstAttribute="width" constant="128" id="bf7-Kz-ydE"/>
                                 </constraints>
-                                <state key="normal" image="postCardIcon"/>
+                                <state key="normal" image="PostCardMakerICon"/>
                                 <connections>
                                     <segue destination="1e7-pT-DEk" kind="show" id="SDY-Jg-JM2"/>
                                 </connections>
@@ -71,7 +71,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NasaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="XsP-iZ-Kr0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nasa Logo" translatesAutoresizingMaskIntoConstraints="NO" id="XsP-iZ-Kr0">
                                 <rect key="frame" x="284" y="89" width="200" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="18B-dW-Jdg"/>
@@ -341,7 +341,7 @@
                                                 <constraint firstAttribute="width" constant="19" id="VQQ-7A-ORK"/>
                                                 <constraint firstAttribute="height" constant="15" id="g3C-2b-fwB"/>
                                             </constraints>
-                                            <state key="normal" title="Button" image="Email"/>
+                                            <state key="normal" title="Button" image="SendEmailButton"/>
                                             <connections>
                                                 <segue destination="jEC-kD-KHW" kind="modal" identifier="MailSegue" modalTransitionStyle="flipHorizontal" id="30f-vT-PEW"/>
                                             </connections>
@@ -380,7 +380,7 @@
                                                 <constraint firstAttribute="height" constant="17" id="EMu-Pd-nQ7"/>
                                                 <constraint firstAttribute="width" constant="19" id="YkC-Lr-5qp"/>
                                             </constraints>
-                                            <state key="normal" image="Home"/>
+                                            <state key="normal" image="HomeIcon"/>
                                             <connections>
                                                 <segue destination="vMa-NC-abz" kind="show" id="fjZ-Hf-3eC"/>
                                             </connections>
@@ -458,7 +458,7 @@
                                             <constraint firstAttribute="height" constant="17" id="Fbn-p2-Wdj"/>
                                             <constraint firstAttribute="width" constant="21" id="iUp-7k-CSV"/>
                                         </constraints>
-                                        <state key="normal" image="Home"/>
+                                        <state key="normal" image="HomeIcon"/>
                                         <connections>
                                             <action selector="homeButtonPressed:" destination="jEC-kD-KHW" eventType="touchUpInside" id="pMV-LG-GlO"/>
                                         </connections>
@@ -466,7 +466,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuk-mb-qMT">
                                         <rect key="frame" x="27" y="39.5" width="544" height="360"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="postcard" translatesAutoresizingMaskIntoConstraints="NO" id="VhT-Ie-lcT">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="postcardImage" translatesAutoresizingMaskIntoConstraints="NO" id="VhT-Ie-lcT">
                                                 <rect key="frame" x="0.0" y="0.0" width="544" height="360"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="544" id="3Gy-n0-HHe"/>
@@ -600,14 +600,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Email" width="128" height="96"/>
-        <image name="Home" width="80" height="70"/>
-        <image name="NasaLogo" width="450" height="372"/>
+        <image name="EyeInTheSkyIcon" width="1024" height="1024"/>
+        <image name="HomeIcon" width="80" height="70"/>
+        <image name="Nasa Logo" width="200" height="166"/>
+        <image name="PostCardMakerICon" width="1024" height="1024"/>
         <image name="Saturn" width="72" height="37"/>
-        <image name="SpaceLake" width="1024" height="1024"/>
+        <image name="SendEmailButton" width="128" height="96"/>
+        <image name="Wallpaper2" width="1024" height="1024"/>
         <image name="infoIcon" width="50" height="128"/>
-        <image name="postCardIcon" width="1024" height="1024"/>
-        <image name="postcard" width="1000" height="667"/>
-        <image name="satIcon" width="1024" height="1024"/>
+        <image name="postcardImage" width="1000" height="667"/>
     </resources>
 </document>

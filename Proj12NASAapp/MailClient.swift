@@ -26,7 +26,8 @@ class MailClient: UIViewController,MFMailComposeViewControllerDelegate{
         let composeVC = MFMailComposeViewController()
         composeVC.mailComposeDelegate = self
         // Configure the fields of the interface.
-        composeVC.setToRecipients(["vernonmartin11@gmail.com"])
+        //MARK: - Email Address to Edit
+        composeVC.setToRecipients(["xxxxxxxx@gmail.com"])
         composeVC.setSubject("A Message From Space!")
         composeVC.setMessageBody("I hope all is well, check out this image from space!", isHTML: false)
         composeVC.addAttachmentData(imageData!, mimeType:  "image/png", fileName: "roverImage.png")

@@ -11,7 +11,7 @@ import UIKit
 private let reuseIdentifier = "NasaCell"
 
 enum RoverImageGeneratorErrors: Error{
-    case couldNotConvertString(String)
+    case couldNotCreateRoverImage(String)
     case noImageFound(String)
     case couldNotConvertDataToImage(String)
 }
@@ -82,7 +82,7 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         
         //Sets look and feel of the header cell
         if indexPath.row == 0 {
-            cell.nasaPhoto.image = UIImage(named: "sky.jpg")
+            cell.nasaPhoto.image = UIImage(named: "Wallpaper1.jpg")
             cell.roverDetailLabel.isHidden = true
             cell.roverNameLabel.isHidden = true
             cell.actionButton.isHidden = true
@@ -113,7 +113,7 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         layout.minimumLineSpacing = 0
         
         activityIndicator.center = self.view.center
-        activityIndicator.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "sky"))
+        activityIndicator.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Wallpaper1"))
         activityIndicator.bringSubview(toFront: self.view)
         activityIndicator.color = .white
         activityIndicator.hidesWhenStopped = true
@@ -124,7 +124,7 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
     
     //Displays an alert message that provides info on how to use the app
     @IBAction func infoButtonPressed(_ sender: Any) {
-        let alert: UIAlertController = UIAlertController(title: "Welcome", message: "This is the Nasa Rover Galleries App. This app collects images from the rovers NASA currently has on Mars. Tap the icon in the bottom right of a image you like to add some text and send a postcard to a fried!", preferredStyle: .alert)
+        let alert: UIAlertController = UIAlertController(title: "Welcome!", message: "This is the Nasa Rover Galleries App. This app collects images from the rovers NASA currently has on Mars. Tap the icon in the bottom right of a image you like to add some text and send a postcard to a friend!", preferredStyle: .alert)
         let okay = UIAlertAction(title: "Got It", style: .default, handler: nil)
         alert.addAction(okay)
         self.present(alert, animated: true, completion: nil)
@@ -158,13 +158,16 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         let selectedPhoto: [String:AnyObject] = allPhotos[Int (arc4random_uniform(UInt32(allPhotos.count)))]
             
             guard let name = selectedPhoto["rover"]?["name"], let date = selectedPhoto["rover"]?["landing_date"] else {
-                print("Error grabbing data from dictionary")
-                return
+                throw RoverImageGeneratorErrors.couldNotCreateRoverImage("Error grabbing data from dictionary")
             }
-            
-        roverName = name as! String
-        roverDate = date as! String
-        roverImage = selectedPhoto.createImageFromJSONString(dataArray: selectedPhoto, key: "img_src")
+        
+            do{
+                roverName = name as! String
+                roverDate = date as! String
+                roverImage = try selectedPhoto.createImageFromJSONString(dataArray: selectedPhoto, key: "img_src")
+            }catch {
+                fatalError("Unable to create rover")
+            }
             
         let rover  = RoverPhoto(name: roverName, date: roverDate, image: roverImage)
         allRover.append(rover)
@@ -181,7 +184,7 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
             let mailPostcardVC = segue.destination as! MailPostcardVC
             let selectedCell: NasaImageCell = sender!.superview?.superview as! NasaImageCell
             let selectedCellRoverImage: UIImage = selectedCell.nasaPhoto.image!
-            mailPostcardVC.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "sky"))
+            mailPostcardVC.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Wallpaper1"))
             mailPostcardVC.postCardRoverImage.image = selectedCellRoverImage
         }
     }

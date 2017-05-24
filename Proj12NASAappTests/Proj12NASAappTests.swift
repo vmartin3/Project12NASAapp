@@ -62,11 +62,15 @@ class Proj12NASAappTests: XCTestCase {
         var roverName: String
         var roverDate: String
         var roverImage: UIImage = UIImage()
-            
+        
+        do{
             roverName = name
             roverDate = date 
-            roverImage = image.createImageFromJSONString(dataArray: image, key: "img_src")
-            
+            roverImage = try image.createImageFromJSONString(dataArray: image, key: "img_src")
+        }catch{
+            print("could not create image from JSON")
+        }
+        
         let rover  = RoverPhoto(name: roverName, date: roverDate, image: roverImage)
         return rover
     }
