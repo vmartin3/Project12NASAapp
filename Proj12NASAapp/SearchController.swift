@@ -13,6 +13,16 @@ class SearchController: UITableViewController {
     var matchingItems:[MKMapItem] = []
     var mapView: MKMapView? = nil
     var handleMapSearchDelegate:HandleMapSearch? = nil
+    
+    //Sets the display on the search table to show the city and state for each item that is queried
+    func getAddress(selectedItem:MKPlacemark) -> String {
+        guard let city = selectedItem.locality,
+            let state = selectedItem.administrativeArea else {return ""}
+        let address = "\(city), \(state)"
+        
+        
+        return address
+    }
 
 }
 
@@ -34,15 +44,6 @@ extension SearchController : UISearchResultsUpdating {
         }
     }
     
-    //Sets the display on the search table to show the city and state for each item that is queried
-    func getAddress(selectedItem:MKPlacemark) -> String {
-        guard let city = selectedItem.locality,
-            let state = selectedItem.administrativeArea else {return ""}
-        let address = "\(city), \(state)"
-        
-  
-        return address
-    }
 }
 
 
@@ -66,5 +67,5 @@ extension SearchController {
         let selectedItem = matchingItems[indexPath.row].placemark
         handleMapSearchDelegate?.dropPinZoomIn(placemark: selectedItem)
         dismiss(animated: true, completion: nil)
-}
+    }
 }
