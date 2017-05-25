@@ -33,38 +33,7 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        //If the data to be displayed is nil, show activity monitor so users know that the app is working to get it
-        if(nasaData == nil){
-            activityIndicator.startAnimating()
-            
-            //Make the network fetch request on the background thread
-            DispatchQueue.global(qos: .background).async {
-                self.networkingRequest.fetchData(url: MarsRover.Rovers(roverName: Rovers.Curiosity.rawValue).fullRequest) { (fetchSuccess, fetchedNasaImageData) in
-                    if fetchSuccess {
-                        //Update the properties and any UI componenets on main thread
-                        DispatchQueue.main.async {
-                            do{
-                                self.nasaData = fetchedNasaImageData
-                                try self.createRover(completion: { (roverImages) in
-                                self.roverDetails = roverImages
-                                self.collectionView?.dataSource = self
-                                self.activityIndicator.stopAnimating()
-                                self.collectionView?.reloadData()
-                            })
-                            }catch{
-                            let message = DisplayErrorMessage(message: "Could not grab images succesfully", view: self)
-                            message.showMessage()
-                                
-                    }
-                }
-            } else {
-                //If images cannot be retrieved crash the program - nothing else can be done without them
-                fatalError()
-                    }
-                }
-            }
-        }
+        fetchData()
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -120,6 +89,41 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
         
         self.collectionView!.collectionViewLayout = layout
         self.collectionView!.backgroundView = activityIndicator
+    }
+    
+    func fetchData(){
+        if(nasaData == nil){
+            //If the data to be displayed is nil, show activity monitor so users know that the app is working to get it
+            activityIndicator.startAnimating()
+            
+            //Make the network fetch request on the background thread
+            DispatchQueue.global(qos: .background).async {
+                self.networkingRequest.fetchData(url: MarsRover.Rovers(roverName: Rovers.Curiosity.rawValue).fullRequest) { (fetchSuccess, fetchedNasaImageData) in
+                    if fetchSuccess {
+                        //Update the properties and any UI componenets on main thread
+                        DispatchQueue.main.async {
+                            do{
+                                self.nasaData = fetchedNasaImageData
+                                try self.createRover(completion: { (roverImages) in
+                                    self.roverDetails = roverImages
+                                    self.collectionView?.dataSource = self
+                                    self.activityIndicator.stopAnimating()
+                                    self.collectionView?.reloadData()
+                                })
+                            }catch{
+                                let message = DisplayErrorMessage(message: "Could not grab images succesfully", view: self)
+                                message.showMessage()
+                                
+                            }
+                        }
+                    } else {
+                        //If images cannot be retrieved crash the program - nothing else can be done without them
+                        fatalError()
+                    }
+                }
+            }
+        }
+
     }
     
     //Displays an alert message that provides info on how to use the app

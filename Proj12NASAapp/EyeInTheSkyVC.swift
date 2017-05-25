@@ -137,7 +137,7 @@ extension EyeInTheSkyVC : MKMapViewDelegate {
         let reuseId = "pin"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
         pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-        pinView?.pinTintColor = UIColor.orange
+        pinView?.pinTintColor = UIColor.blue
         pinView?.canShowCallout = true
         let smallSquare = CGRect(x: 0, y: 0, width: 30, height: 30)
         let button = UIButton(frame: smallSquare)
