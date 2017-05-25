@@ -124,7 +124,7 @@ class RoverPostCardVC: UICollectionViewController, UICollectionViewDelegateFlowL
     
     //Displays an alert message that provides info on how to use the app
     @IBAction func infoButtonPressed(_ sender: Any) {
-        let alert: UIAlertController = UIAlertController(title: "Welcome!", message: "This is the Nasa Rover Galleries App. This app collects images from the rovers NASA currently has on Mars. Tap the icon in the bottom right of a image you like to add some text and send a postcard to a friend!", preferredStyle: .alert)
+        let alert: UIAlertController = UIAlertController(title: "Welcome!", message: "This is the Nasa Rover Post Card Feature. This collects images from the rovers NASA currently has on Mars. Tap the icon in the bottom right of a image you like to add some text and send a postcard to a friend!", preferredStyle: .alert)
         let okay = UIAlertAction(title: "Got It", style: .default, handler: nil)
         alert.addAction(okay)
         self.present(alert, animated: true, completion: nil)

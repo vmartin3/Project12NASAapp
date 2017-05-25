@@ -29,6 +29,13 @@ class EyeInTheSkyVC: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBAction func infoPressed(_ sender: Any) {
+        let alert: UIAlertController = UIAlertController(title: "Welcome!", message: "This is the Eye in the Sky feature. Search for a location > Tap on the pin > Tap on the satellite icon to see latest satellite image of your selected location from the Landsat 8 Satellite", preferredStyle: .alert)
+        let okay = UIAlertAction(title: "Got It", style: .default, handler: nil)
+        alert.addAction(okay)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true

@@ -163,7 +163,13 @@
                             <constraint firstItem="EWI-xd-gmj" firstAttribute="top" secondItem="jzg-hy-UE0" secondAttribute="top" id="yUI-Sg-bi3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zXK-dQ-9eo"/>
+                    <navigationItem key="navigationItem" id="zXK-dQ-9eo">
+                        <barButtonItem key="rightBarButtonItem" title="Info" id="nMV-Hh-Ust">
+                            <connections>
+                                <action selector="infoPressed:" destination="9JQ-0M-cth" id="jZO-Yv-njK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="EWI-xd-gmj" id="EgT-Cf-dmh"/>
                         <outlet property="searchDisplayController" destination="vYa-cI-wKQ" id="Vz4-NG-Uvs"/>
@@ -181,7 +187,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1733" y="-1570"/>
+            <point key="canvasLocation" x="2332" y="-1362"/>
         </scene>
         <!--Satellite Image DisplayVC-->
         <scene sceneID="AU5-aX-l1i">
@@ -284,7 +290,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Pe-f8-sih" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3092" y="-696"/>
+            <point key="canvasLocation" x="3091" y="-654"/>
         </scene>
         <!--Rover Post CardVC-->
         <scene sceneID="pN5-ex-dBA">
@@ -596,7 +602,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rcq-oo-Jkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="-23"/>
+            <point key="canvasLocation" x="638" y="-291"/>
         </scene>
     </scenes>
     <resources>
